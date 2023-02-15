@@ -8,6 +8,7 @@ import {
 	BelongsToSetAssociationMixin,
 	BelongsToGetAssociationMixin,
 } from "sequelize";
+import { mainAuthorizationNames } from "./../authorization/index";
 export namespace globalData {
 	export interface Language
 		extends Model<
@@ -20,18 +21,12 @@ export namespace globalData {
 		icon: string;
 	}
 	export interface AppType
-		extends Model<
-			InferAttributes<AppType>,
-			InferCreationAttributes<AppType>
-		> {
+		extends Model<InferAttributes<AppType>, InferCreationAttributes<AppType>> {
 		id: CreationOptional<number>;
 		name: string;
 	}
 	export interface Module
-		extends Model<
-			InferAttributes<Module>,
-			InferCreationAttributes<Module>
-		> {
+		extends Model<InferAttributes<Module>, InferCreationAttributes<Module>> {
 		id: CreationOptional<number>;
 		name: string;
 		active: boolean;
@@ -43,7 +38,7 @@ export namespace globalData {
 		extends Model<InferAttributes<Role>, InferCreationAttributes<Role>> {
 		id: CreationOptional<number>;
 		name: string;
-		type: "admin" | "user";
+		type: mainAuthorizationNames;
 
 		/*
 		Users: NonAttribute<User[]>;
@@ -61,7 +56,7 @@ export namespace globalData {
 		> {
 		id: CreationOptional<number>;
 		name: string;
-		type: "admin" | "user";
+		type: mainAuthorizationNames;
 	}
 	export interface Currency
 		extends Model<
