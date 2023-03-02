@@ -1,4 +1,4 @@
-import { loginAttempt } from "../../digitalniweb-types/index.js";
+import { loginAttempt, possibleRoles } from "./../";
 type requestLanguageExpansion = {
 	header: string;
 	code: string;
@@ -12,7 +12,7 @@ type requestAntispamExpansion = {
 };
 
 declare global {
-	declare namespace Express {
+	namespace Express {
 		export interface Request {
 			lang?: requestLanguageExpansion;
 			antispam?: requestAntispamExpansion;
