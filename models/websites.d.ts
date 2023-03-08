@@ -30,8 +30,11 @@ export namespace websites {
 		id: CreationOptional<number>;
 		parentId?: number;
 		name: string;
-		port?: number;
+		port: number;
 		appTypeId: CreationOptional<number>;
+		host: string;
+		uniqueName: string;
+		apiKey?: string;
 
 		setParent: HasOneSetAssociationMixin<App, "id">;
 		setAppLanguages: HasManySetAssociationsMixin<AppLanguage, number>;
@@ -46,7 +49,10 @@ export namespace websites {
 	}
 
 	export interface Website
-		extends Model<InferAttributes<Website>, InferCreationAttributes<Website>> {
+		extends Model<
+			InferAttributes<Website>,
+			InferCreationAttributes<Website>
+		> {
 		id: CreationOptional<number>;
 		uniqueName: CreationOptional<string>;
 		MainUrlId?: number;
