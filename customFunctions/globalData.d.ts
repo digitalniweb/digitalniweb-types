@@ -10,6 +10,10 @@ export type serviceRegistry = {
 	[key in microservices]?: microserviceRegistryInfo;
 };
 
+export type serviceRegistryApp = {
+	[key: string]: websites.App;
+};
+
 import { Optional, CreationAttributes } from "sequelize";
 import { globalData } from "../models/globalData.js";
 
