@@ -11,7 +11,7 @@ export type serviceRegistry = {
 };
 
 export type serviceRegistryApp = {
-	[key: string]: websites.App;
+	[key: string]: globalData.App;
 };
 
 import { Optional, CreationAttributes } from "sequelize";

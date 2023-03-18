@@ -25,22 +25,6 @@ import {
 	BelongsToManyAddAssociationsMixin,
 } from "sequelize";
 export namespace websites {
-	export interface App
-		extends Model<InferAttributes<App>, InferCreationAttributes<App>> {
-		id: CreationOptional<number>;
-		parentId?: number;
-		name: string;
-		port: number;
-		appTypeId: CreationOptional<number>;
-		host: string;
-		uniqueName: string;
-		apiKey?: string;
-
-		setParent: HasOneSetAssociationMixin<App, "id">;
-		setAppLanguages: HasManySetAssociationsMixin<AppLanguage, number>;
-		createAppLanguage: HasManyCreateAssociationMixin<AppLanguage, "id">;
-	}
-
 	export interface Url
 		extends Model<InferAttributes<Url>, InferCreationAttributes<Url>> {
 		id: CreationOptional<number>;
@@ -49,15 +33,12 @@ export namespace websites {
 	}
 
 	export interface Website
-		extends Model<
-			InferAttributes<Website>,
-			InferCreationAttributes<Website>
-		> {
+		extends Model<InferAttributes<Website>, InferCreationAttributes<Website>> {
 		id: CreationOptional<number>;
 		uniqueName: CreationOptional<string>;
 		MainUrlId?: number;
 		userId?: number;
-		AppId?: number;
+		appId?: number;
 		mainLanguageId?: number;
 		active: boolean;
 		testingMode: boolean;
@@ -107,15 +88,6 @@ export namespace websites {
 			InferCreationAttributes<WebsiteLanguageMutation>
 		> {
 		WebsiteId: CreationOptional<number>;
-		languageId: CreationOptional<number>;
-	}
-	export interface AppLanguage
-		extends Model<
-			InferAttributes<AppLanguage>,
-			InferCreationAttributes<AppLanguage>
-		> {
-		id: CreationOptional<number>;
-		AppId: CreationOptional<number>;
 		languageId: CreationOptional<number>;
 	}
 }

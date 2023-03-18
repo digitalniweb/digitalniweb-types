@@ -7,6 +7,9 @@ import {
 	BelongsToCreateAssociationMixin,
 	BelongsToSetAssociationMixin,
 	BelongsToGetAssociationMixin,
+	HasOneSetAssociationMixin,
+	HasManySetAssociationsMixin,
+	HasManyCreateAssociationMixin,
 } from "sequelize";
 import { mainAuthorizationNames } from "./../authorization/index";
 export namespace globalData {
@@ -105,5 +108,29 @@ export namespace globalData {
 			ServiceRegistry,
 			number
 		>;
+	}
+	export interface AppLanguage
+		extends Model<
+			InferAttributes<AppLanguage>,
+			InferCreationAttributes<AppLanguage>
+		> {
+		id: CreationOptional<number>;
+		AppId: CreationOptional<number>;
+		LanguageId: ForeignKey<Language["id"]>;
+	}
+	export interface App
+		extends Model<InferAttributes<App>, InferCreationAttributes<App>> {
+		id: CreationOptional<number>;
+		parentId?: number;
+		name: string;
+		port: number;
+		AppTypeId: ForeignKey<AppType["id"]>;
+		host: string;
+		uniqueName: string;
+		apiKey?: string;
+
+		setParent: HasOneSetAssociationMixin<App, "id">;
+		setAppLanguages: HasManySetAssociationsMixin<AppLanguage, number>;
+		createAppLanguage: HasManyCreateAssociationMixin<AppLanguage, "id">;
 	}
 }
