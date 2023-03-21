@@ -12,9 +12,11 @@ export type possibleRoles =
 	| "tenant"
 	| "user";
 
+export type languages = "cs" | "en";
+
 export interface loginAttempt extends CreationAttributes<LoginLog> {}
 
-type serviceInfoType = {
+export type microserviceInfoType = {
 	PORT: number;
 	HOST: string;
 	MICROSERVICE_UNIQUE_NAME: string;
@@ -22,4 +24,16 @@ type serviceInfoType = {
 	MICROSERVICE_API_KEY: string;
 };
 
-type serviceInfoParametersType = keyof serviceInfoType;
+export type microserviceInfoParametersType = keyof microserviceInfoType;
+
+export type appInfoType = {
+	PORT: number;
+	HOST: string;
+	APP_UNIQUE_NAME: string;
+	APP_NAME: string;
+	APP_API_KEY: string;
+	APP_TYPE: string;
+	DEFAULT_LANGUAGE: languages;
+};
+
+export type appInfoParametersType = keyof appInfoType;

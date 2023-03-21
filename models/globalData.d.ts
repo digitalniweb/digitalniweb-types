@@ -125,6 +125,7 @@ export namespace globalData {
 		name: string;
 		port: number;
 		AppTypeId: ForeignKey<AppType["id"]>;
+		LanguageId: ForeignKey<Language["id"]>;
 		host: string;
 		uniqueName: string;
 		apiKey?: string;
