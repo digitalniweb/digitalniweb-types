@@ -14,12 +14,14 @@ import {
 	ModelAttributes,
 	AssociationOptions,
 	HasOneGetAssociationMixin,
-	HasManySetAssociationsMixin,
 	ForeignKey,
 } from "sequelize";
 export namespace users {
 	export interface Tenant
-		extends Model<InferAttributes<Tenant>, InferCreationAttributes<Tenant>> {
+		extends Model<
+			InferAttributes<Tenant>,
+			InferCreationAttributes<Tenant>
+		> {
 		id: CreationOptional<number>;
 		UserId: ForeignKey<User["id"]>;
 		countryId?: number;

@@ -137,14 +137,17 @@ export namespace globalData {
 		uniqueName: string;
 		apiKey?: string;
 
-		setParent: HasOneSetAssociationMixin<App, "id">;
-		getParent: HasOneGetAssociationMixin<App>;
+		setParent: BelongsToSetAssociationMixin<App, "id">;
+		getParent: BelongsToGetAssociationMixin<App>;
 
-		setChild: BelongsToSetAssociationMixin<App, "id">;
-		getChild: BelongsToGetAssociationMixin<App>;
+		setChild: HasOneSetAssociationMixin<App, "id">;
+		getChild: HasOneGetAssociationMixin<App>;
 
 		setLanguages: HasManySetAssociationsMixin<Language, number>;
 		createLanguage: HasManyCreateAssociationMixin<Language, "id">;
+
+		setLanguage: BelongsToSetAssociationMixin<Language, "id">;
+
 		setAppType: BelongsToSetAssociationMixin<AppType, number>;
 	}
 }
