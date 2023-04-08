@@ -10,6 +10,7 @@ import {
 	HasOneSetAssociationMixin,
 	HasManySetAssociationsMixin,
 	HasManyCreateAssociationMixin,
+	HasOneGetAssociationMixin,
 } from "sequelize";
 import { mainAuthorizationNames } from "./../authorization/index";
 export namespace globalData {
@@ -137,7 +138,13 @@ export namespace globalData {
 		apiKey?: string;
 
 		setParent: HasOneSetAssociationMixin<App, "id">;
+		getParent: HasOneGetAssociationMixin<App>;
+
+		setChild: BelongsToSetAssociationMixin<App, "id">;
+		getChild: BelongsToGetAssociationMixin<App>;
+
 		setLanguages: HasManySetAssociationsMixin<Language, number>;
 		createLanguage: HasManyCreateAssociationMixin<Language, "id">;
+		setAppType: BelongsToSetAssociationMixin<AppType, number>;
 	}
 }
