@@ -23,6 +23,7 @@ export type microserviceOptions = CreationAttributes<
 > &
 	Pick<globalData.Microservice, "name" | "mainServiceRegistryId">;
 
-export type appOptions = CreationAttributes<
-	Optional<globalData.App, "AppTypeId", "LanguageId">
-> & { language: languages; appType: string };
+export type appOptions = Partial<CreationAttributes<globalData.App>> & {
+	language: languages;
+	appType: string;
+};
