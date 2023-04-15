@@ -21,8 +21,6 @@ declare global {
 			DB_NAME?: string;
 			DB_DRIVER?: string;
 
-			DEFAULT_LANGUAGE?: string;
-
 			NODE_ENV: "development" | "production";
 		}
 	}
