@@ -133,7 +133,7 @@ export namespace globalData {
 		port: number;
 		AppTypeId: ForeignKey<AppType["id"]>;
 		LanguageId: ForeignKey<Language["id"]>;
-		host: string;
+		websiteId: number;
 		uniqueName: string;
 		apiKey?: string;
 
