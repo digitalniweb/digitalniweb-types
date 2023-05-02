@@ -33,7 +33,10 @@ export namespace websites {
 	}
 
 	export interface Website
-		extends Model<InferAttributes<Website>, InferCreationAttributes<Website>> {
+		extends Model<
+			InferAttributes<Website>,
+			InferCreationAttributes<Website>
+		> {
 		id: CreationOptional<number>;
 		uniqueName: CreationOptional<string>;
 		MainUrlId?: number;
@@ -50,6 +53,7 @@ export namespace websites {
 		setAlias: HasManySetAssociationsMixin<Url, number>;
 		createAlias: HasManyCreateAssociationMixin<Url, "id">;
 		createMainUrl: BelongsToCreateAssociationMixin<Url>;
+		setMainUrl: BelongsToCreateAssociationMixin<Url>;
 		setApp: BelongsToSetAssociationMixin<App, number>;
 	}
 	export interface ModulesPagesLanguage
