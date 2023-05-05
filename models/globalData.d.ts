@@ -105,7 +105,7 @@ export namespace globalData {
 			InferCreationAttributes<Microservice>
 		> {
 		id: CreationOptional<number>;
-		name: string;
+		name: microservices;
 		mainServiceRegistryId?: ForeignKey<ServiceRegistry["id"]>;
 		ServiceRegistries?: ServiceRegistry[];
 

@@ -2,8 +2,12 @@ import { microservices } from "../../digitalniweb-types/index.js";
 import { globalData } from "../models/globalData.js";
 import { languages } from "../../digitalniweb-types/index.js";
 
+/**
+ * @property 'name' name of microservice because if I get this by id I need to know which microservice it is
+ */
 export type microserviceRegistryInfo = {
-	mainId: number;
+	mainId?: number;
+	name: microservices;
 	services: Array<globalData.ServiceRegistry>;
 };
 
