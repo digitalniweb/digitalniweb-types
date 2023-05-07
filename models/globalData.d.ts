@@ -125,6 +125,10 @@ export namespace globalData {
 		AppId: CreationOptional<number>;
 		LanguageId: ForeignKey<Language["id"]>;
 	}
+
+	/**
+	 * @comment websites_ms.Website.belongsTo(App)
+	 */
 	export interface App
 		extends Model<InferAttributes<App>, InferCreationAttributes<App>> {
 		id: CreationOptional<number>;
@@ -133,7 +137,6 @@ export namespace globalData {
 		port: number;
 		AppTypeId: ForeignKey<AppType["id"]>;
 		LanguageId: ForeignKey<Language["id"]>;
-		websiteId?: number;
 		host?: NonAttribute<string>;
 		uniqueName: string;
 		apiKey?: string;
