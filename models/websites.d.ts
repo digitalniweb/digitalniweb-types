@@ -23,6 +23,9 @@ import {
 	HasOneSetAssociationMixin,
 	BelongsToManyAddAssociationMixin,
 	BelongsToManyAddAssociationsMixin,
+	HasManyHasAssociationsMixin,
+	HasManyCountAssociationsMixin,
+	HasManyRemoveAssociationsMixin,
 } from "sequelize";
 export namespace websites {
 	export interface Url
@@ -51,6 +54,11 @@ export namespace websites {
 		deletedAt?: Date;
 
 		setAliases: HasManySetAssociationsMixin<Url, number>;
+		addAliases: HasManyAddAssociationsMixin<Url, number>;
+		removeAliases: HasManyRemoveAssociationsMixin<Url, number>;
+		hasAliases: HasManyHasAssociationsMixin<Url, number>;
+		getAliases: HasManyGetAssociationsMixin<Url>;
+		countAliases: HasManyCountAssociationsMixin;
 		createAlias: HasManyCreateAssociationMixin<Url, "id">;
 		createMainUrl: BelongsToCreateAssociationMixin<Url>;
 		setMainUrl: BelongsToCreateAssociationMixin<Url>;
