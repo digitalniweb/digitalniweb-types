@@ -32,17 +32,30 @@ export namespace globalData {
 		id: CreationOptional<number>;
 		name: string;
 	}
+
+	/**
+	 * @property {string} name This is name how we refer to this model i.e. 'photoGallery'
+	 * @property {string|null} model Name of the model i.e. 'PhotoGallery'
+	 */
 	export interface Module
 		extends Model<
 			InferAttributes<Module>,
 			InferCreationAttributes<Module>
 		> {
 		id: CreationOptional<number>;
-		name: string;
+		name: string; // english name
+		model?: string; // model name
 		active: boolean;
-		dedicatedTable: boolean;
 		usersRoleId?: number;
 		creditsCost?: number; // per month
+	}
+	export interface AppModule
+		extends Model<
+			InferAttributes<Module>,
+			InferCreationAttributes<Module>
+		> {
+		AppId: ForeignKey<App["id"]>;
+		ModuleId: ForeignKey<Module["id"]>;
 	}
 	export interface Role
 		extends Model<InferAttributes<Role>, InferCreationAttributes<Role>> {
@@ -153,5 +166,14 @@ export namespace globalData {
 		setLanguage: BelongsToSetAssociationMixin<Language, "id">;
 
 		setAppType: BelongsToSetAssociationMixin<AppType, number>;
+	}
+
+	export interface Widget
+		extends Model<
+			InferAttributes<Widget>,
+			InferCreationAttributes<Widget>
+		> {
+		id: CreationOptional<number>;
+		widgetName: string;
 	}
 }
