@@ -45,15 +45,15 @@ export namespace globalData {
 		id: CreationOptional<number>;
 		name: string; // english name
 		model?: string; // model name
-		active: boolean;
 		usersRoleId?: number;
 		creditsCost?: number; // per month
 	}
 	export interface AppModule
 		extends Model<
-			InferAttributes<Module>,
-			InferCreationAttributes<Module>
+			InferAttributes<AppModule>,
+			InferCreationAttributes<AppModule>
 		> {
+		id: CreationOptional<number>;
 		AppId: ForeignKey<App["id"]>;
 		ModuleId: ForeignKey<Module["id"]>;
 	}
@@ -174,6 +174,16 @@ export namespace globalData {
 			InferCreationAttributes<Widget>
 		> {
 		id: CreationOptional<number>;
-		widgetName: string;
+		name: string;
+	}
+
+	export interface AppWidget
+		extends Model<
+			InferAttributes<AppWidget>,
+			InferCreationAttributes<AppWidget>
+		> {
+		id: CreationOptional<number>;
+		AppId: ForeignKey<App["id"]>;
+		WidgetId: ForeignKey<Widget["id"]>;
 	}
 }
