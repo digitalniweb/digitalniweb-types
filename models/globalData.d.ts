@@ -13,6 +13,7 @@ import {
 	HasOneGetAssociationMixin,
 } from "sequelize";
 import { mainAuthorizationNames } from "./../authorization/index";
+import { modules, widgets, widgetNames, moduleModels } from "..";
 export namespace globalData {
 	export interface Language
 		extends Model<
@@ -43,8 +44,8 @@ export namespace globalData {
 			InferCreationAttributes<Module>
 		> {
 		id: CreationOptional<number>;
-		name: string; // english name
-		model?: string; // model name
+		name: modules; // english name
+		model?: moduleModels; // model name
 		usersRoleId?: number;
 		creditsCost?: number; // per month
 	}
@@ -175,6 +176,7 @@ export namespace globalData {
 		> {
 		id: CreationOptional<number>;
 		name: string;
+		widgetName: widgetNames;
 	}
 
 	export interface AppWidget

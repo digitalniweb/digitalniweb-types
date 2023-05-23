@@ -3,7 +3,7 @@ import { CreationAttributes } from "sequelize";
 import { users } from "../digitalniweb-types/models/users.js";
 import LoginLog = users.LoginLog;
 import { microservicesArray } from "../digitalniweb-custom/variables/microservices.js";
-export type microservices = typeof microservicesArray[number];
+export type microservices = (typeof microservicesArray)[number];
 
 export type possibleRoles =
 	| "superadmin"
@@ -35,5 +35,30 @@ export type appInfoType = {
 	APP_TYPE: string;
 	DEFAULT_LANGUAGE: languages;
 };
+
+/**
+ * 'module': 'module model'
+ *
+ * 'module' - name of the module in common english language
+ */
+type modulesMap = {
+	articles: "Article";
+	"photo gallery": "PhotoGallery";
+	news: "News";
+};
+
+export type modules = keyof modulesMap;
+export type moduleModels = modulesMap[keyof modulesMap];
+
+/**
+ * 'widget': 'widget name'
+ *
+ * 'widget' - name of the widget in common english language
+ */
+type widgetsMap = {
+	text: "Text";
+};
+export type widgets = keyof widgetsMap;
+export type widgetNames = widgetsMap[keyof widgetsMap];
 
 export type appInfoParametersType = keyof appInfoType;
