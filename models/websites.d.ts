@@ -42,6 +42,7 @@ export namespace websites {
 		> {
 		id: CreationOptional<number>;
 		uniqueName: CreationOptional<string>;
+		websitesMsId: number;
 		MainUrlId?: number;
 		userId?: number;
 		appId?: number;
@@ -62,7 +63,6 @@ export namespace websites {
 		createAlias: HasManyCreateAssociationMixin<Url, "id">;
 		createMainUrl: BelongsToCreateAssociationMixin<Url>;
 		setMainUrl: BelongsToCreateAssociationMixin<Url>;
-		setApp: BelongsToSetAssociationMixin<App, number>;
 	}
 	export interface ModulesPagesLanguage
 		extends Model<
@@ -102,52 +102,17 @@ export namespace websites {
 		WebsiteId: CreationOptional<number>;
 		languageId: CreationOptional<number>;
 	}
-	export interface Article
-		extends Model<
-			InferAttributes<Article>,
-			InferCreationAttributes<Article>
-		> {
-		id: CreationOptional<number>;
-		languageId: CreationOptional<number>;
-		name: string;
-		url: string;
-		icon: string;
-		otherUrl: string;
-		active: boolean;
-		freeMenu: boolean;
-		order: number;
-		treeLevel: number;
-		parentId: CreationOptional<number>;
-		WebsiteId: ForeignKey<Website["id"]>;
-		title: string;
-		description: string;
-		image: string;
-		updatedAt?: CreationOptional<Date>;
-		createdAt?: CreationOptional<Date>;
-		deletedAt?: Date;
-	}
 
 	/**
-	 * @property {number} widgetId ID of the widget
-	 * @property {number} modlueId ID of the module i.e. ID inside 'Module' model representing 'Article'
-	 * @property {number} moduleRecordId ID of record of the module i.e. ID inside 'Article' module
+	 * which app can have which admin menu
 	 */
-	export interface WidgetContent
+	export interface AdminMenuApp
 		extends Model<
-			InferAttributes<WidgetContent>,
-			InferCreationAttributes<WidgetContent>
+			InferAttributes<AdminMenuApp>,
+			InferCreationAttributes<AdminMenuApp>
 		> {
 		id: CreationOptional<number>;
-		widgetId: number;
-		moduleId: number;
-		moduleRecordId: number;
-		name: string;
-		content: string;
-		options: object;
-		active: boolean;
-		order: number;
-		createdAt?: CreationOptional<Date>;
-		updatedAt?: CreationOptional<Date>;
-		deletedAt?: Date;
+		adminMenuId: number;
+		appId: number;
 	}
 }

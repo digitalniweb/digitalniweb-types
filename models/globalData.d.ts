@@ -146,7 +146,7 @@ export namespace globalData {
 	export interface App
 		extends Model<InferAttributes<App>, InferCreationAttributes<App>> {
 		id: CreationOptional<number>;
-		parentId?: number;
+		parentId: ForeignKey<App["id"]>;
 		name: string;
 		port: number;
 		AppTypeId: ForeignKey<AppType["id"]>;
@@ -187,5 +187,41 @@ export namespace globalData {
 		id: CreationOptional<number>;
 		AppId: ForeignKey<App["id"]>;
 		WidgetId: ForeignKey<Widget["id"]>;
+	}
+
+	export interface AdminMenu
+		extends Model<
+			InferAttributes<AdminMenu>,
+			InferCreationAttributes<AdminMenu>
+		> {
+		id: CreationOptional<number>;
+		/**
+		 * how we refer to the menu
+		 */
+		name: string;
+		component: string;
+		order: number;
+		icon?: string;
+		parentId: ForeignKey<AdminMenu["id"]>;
+		openable: boolean;
+		separator?: boolean;
+		ModuleId?: ForeignKey<Module["id"]>;
+		// RoleId: ForeignKey<Role["id"]>; // this should be hasMany
+		// PrivilegeId: ForeignKey<Privilege["id"]>; // I think this isn't necessary
+	}
+
+	export interface AdminMenuLanguage
+		extends Model<
+			InferAttributes<AdminMenuLanguage>,
+			InferCreationAttributes<AdminMenuLanguage>
+		> {
+		id: CreationOptional<number>;
+		AdminMenuId: ForeignKey<AdminMenu["id"]>;
+		LanguageId: ForeignKey<Language["id"]>;
+		url: string;
+		/**
+		 * how is menu shown in set language in /admin menu
+		 */
+		name: string;
 	}
 }
