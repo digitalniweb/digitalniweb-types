@@ -42,7 +42,7 @@ export namespace websites {
 		> {
 		id: CreationOptional<number>;
 		uniqueName: CreationOptional<string>;
-		websitesMsId: number;
+		contentMsId: CreationOptional<number>;
 		MainUrlId?: number;
 		userId?: number;
 		appId?: number;
