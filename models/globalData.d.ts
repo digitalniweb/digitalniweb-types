@@ -204,6 +204,10 @@ export namespace globalData {
 		icon?: string;
 		parentId: ForeignKey<AdminMenu["id"]>;
 		openable: boolean;
+		/**
+		 * Defines if current 'AdminMenu' is default to all 'Apps' i.e. in all applications this 'AdminMenu' will be shown.
+		 */
+		isDefault: boolean;
 		separator?: boolean;
 		ModuleId?: ForeignKey<Module["id"]>;
 		// RoleId: ForeignKey<Role["id"]>; // this should be hasMany
@@ -232,7 +236,7 @@ export namespace globalData {
 	 *
 	 * These values might be shown on the root page or other pages as well (depends on the individual module).
 	 *
-	 * (To implement maybe - user will be able to change these default values in 'websites ms' for every website)
+	 * (To implement maybe - user will be able to change these default values in 'content ms' for every website)
 	 */
 	export interface ModulesPagesLanguage
 		extends Model<
