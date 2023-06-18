@@ -224,4 +224,30 @@ export namespace globalData {
 		 */
 		name: string;
 	}
+
+	/**
+	 * #ModulesPagesLanguage
+	 *
+	 * If modules have their own dedicated root url ('/news' in '/news/we-started-new-website') their default values are specified in here for every language.
+	 *
+	 * These values might be shown on the root page or other pages as well (depends on the individual module).
+	 *
+	 * (To implement maybe - user will be able to change these default values in 'websites ms' for every website)
+	 */
+	export interface ModulesPagesLanguage
+		extends Model<
+			InferAttributes<ModulesPagesLanguage>,
+			InferCreationAttributes<ModulesPagesLanguage>
+		> {
+		id: CreationOptional<number>;
+		ModuleId: ForeignKey<Module["id"]>;
+		LanguageId: ForeignKey<Language["id"]>;
+		url: string;
+		title?: string;
+		description?: string;
+		headline?: string;
+		image?: string;
+		content?: string;
+		options?: any;
+	}
 }

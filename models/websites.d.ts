@@ -64,22 +64,6 @@ export namespace websites {
 		createMainUrl: BelongsToCreateAssociationMixin<Url>;
 		setMainUrl: BelongsToCreateAssociationMixin<Url>;
 	}
-	export interface ModulesPagesLanguage
-		extends Model<
-			InferAttributes<ModulesPagesLanguage>,
-			InferCreationAttributes<ModulesPagesLanguage>
-		> {
-		id: CreationOptional<number>;
-		moduleId: CreationOptional<number>;
-		languageId: CreationOptional<number>;
-		url: string;
-		title?: string;
-		description?: string;
-		headline?: string;
-		image?: string;
-		content?: string;
-		translations?: any;
-	}
 
 	export interface WebsiteModule
 		extends Model<
