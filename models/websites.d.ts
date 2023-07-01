@@ -47,6 +47,7 @@ export namespace websites {
 		userId?: number;
 		appId?: number;
 		mainLanguageId?: number;
+		emailsMsId?: number;
 		active: boolean;
 		testingMode: boolean;
 		paused: boolean;
