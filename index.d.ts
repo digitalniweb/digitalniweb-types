@@ -5,6 +5,13 @@ import LoginLog = users.LoginLog;
 import { microservicesArray } from "../digitalniweb-custom/variables/microservices.js";
 export type microservices = (typeof microservicesArray)[number];
 
+import {
+	appsArray,
+	appsTypesArray,
+} from "../digitalniweb-custom/variables/apps.js";
+export type apps = (typeof appsArray)[number];
+export type appsTypes = (typeof appsTypesArray)[number];
+
 export type possibleRoles =
 	| "superadmin"
 	| "owner"

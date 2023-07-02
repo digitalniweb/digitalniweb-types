@@ -1,4 +1,9 @@
-import { languages, microservices } from "../../digitalniweb-types/index.js";
+import {
+	languages,
+	microservices,
+	apps,
+	appsTypes,
+} from "../../digitalniweb-types/index.js";
 declare global {
 	namespace NodeJS {
 		interface ProcessEnv {
@@ -6,10 +11,10 @@ declare global {
 			MICROSERVICE_UNIQUE_NAME: string;
 			MICROSERVICE_API_KEY: string;
 
-			APP_NAME: string;
+			APP_NAME: apps;
 			APP_UNIQUE_NAME: string;
 			APP_API_KEY: string;
-			APP_TYPE: string;
+			APP_TYPE: appsTypes;
 			DEFAULT_LANGUAGE: languages;
 
 			HOST: string;
