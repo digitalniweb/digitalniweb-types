@@ -49,15 +49,6 @@ export namespace globalData {
 		usersRoleId?: number;
 		creditsCost?: number; // per month
 	}
-	export interface AppModule
-		extends Model<
-			InferAttributes<AppModule>,
-			InferCreationAttributes<AppModule>
-		> {
-		id: CreationOptional<number>;
-		AppId: ForeignKey<App["id"]>;
-		ModuleId: ForeignKey<Module["id"]>;
-	}
 	export interface Role
 		extends Model<InferAttributes<Role>, InferCreationAttributes<Role>> {
 		id: CreationOptional<number>;
@@ -130,15 +121,6 @@ export namespace globalData {
 			number
 		>;
 	}
-	export interface AppLanguage
-		extends Model<
-			InferAttributes<AppLanguage>,
-			InferCreationAttributes<AppLanguage>
-		> {
-		id: CreationOptional<number>;
-		AppId: CreationOptional<number>;
-		LanguageId: ForeignKey<Language["id"]>;
-	}
 
 	/**
 	 * @comment websites_ms.Website.belongsTo(App)
@@ -177,16 +159,6 @@ export namespace globalData {
 		id: CreationOptional<number>;
 		name: string;
 		widgetName: widgetNames;
-	}
-
-	export interface AppWidget
-		extends Model<
-			InferAttributes<AppWidget>,
-			InferCreationAttributes<AppWidget>
-		> {
-		id: CreationOptional<number>;
-		AppId: ForeignKey<App["id"]>;
-		WidgetId: ForeignKey<Widget["id"]>;
 	}
 
 	export interface AdminMenu
