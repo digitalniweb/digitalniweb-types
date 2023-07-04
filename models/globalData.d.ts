@@ -143,9 +143,6 @@ export namespace globalData {
 		setChild: HasOneSetAssociationMixin<App, "id">;
 		getChild: HasOneGetAssociationMixin<App>;
 
-		setLanguages: HasManySetAssociationsMixin<Language, number>;
-		createLanguage: HasManyCreateAssociationMixin<Language, "id">;
-
 		setLanguage: BelongsToSetAssociationMixin<Language, "id">;
 
 		setAppType: BelongsToSetAssociationMixin<AppType, number>;
