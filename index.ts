@@ -1,6 +1,6 @@
 import { CreationAttributes } from "sequelize";
 
-import { users } from "../digitalniweb-types/models/users.js";
+import { users } from "./models/users.js";
 import LoginLog = users.LoginLog;
 import { microservicesArray } from "../digitalniweb-custom/variables/microservices.js";
 export type microservices = (typeof microservicesArray)[number];

@@ -1,3 +1,4 @@
+"use strict";
 import {
 	Model,
 	CreationOptional,
@@ -5,7 +6,7 @@ import {
 	InferCreationAttributes,
 	ForeignKey,
 } from "sequelize";
-export namespace apps {
+export declare namespace apps {
 	/**
 	 * current app's AdminMenus
 	 */
