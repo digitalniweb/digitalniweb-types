@@ -1,6 +1,6 @@
-import { microservices } from "../../digitalniweb-types/index.js";
+import { microservices } from "../index.js";
 import { globalData } from "../models/globalData.js";
-import { languages } from "../../digitalniweb-types/index.js";
+import { languages } from "../index.js";
 
 /**
  * @property 'name' name of microservice because if I get this by id I need to know which microservice it is
@@ -20,7 +20,6 @@ export type serviceRegistryApp = {
 };
 
 import { Optional, CreationAttributes } from "sequelize";
-import { globalData } from "../models/globalData.js";
 
 export type microserviceOptions = CreationAttributes<
 	Optional<globalData.ServiceRegistry, "MicroserviceId">

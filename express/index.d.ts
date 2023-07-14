@@ -1,4 +1,4 @@
-import { loginAttempt, possibleRoles } from "./../";
+import { loginAttempt, possibleRoles } from "..";
 type requestLanguageExpansion = {
 	header: string;
 	code: string;

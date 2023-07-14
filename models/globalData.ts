@@ -11,9 +11,10 @@ import {
 	HasManySetAssociationsMixin,
 	HasManyCreateAssociationMixin,
 	HasOneGetAssociationMixin,
+	NonAttribute,
 } from "sequelize";
-import { mainAuthorizationNames } from "./../authorization/index";
-import { modules, widgets, widgetNames, moduleModels } from "..";
+import { mainAuthorizationNames } from "../authorization/index";
+import { modules, widgetNames, moduleModels, microservices } from "..";
 export namespace globalData {
 	export interface Language
 		extends Model<
@@ -133,7 +134,7 @@ export namespace globalData {
 		port: number;
 		AppTypeId: ForeignKey<AppType["id"]>;
 		LanguageId: ForeignKey<Language["id"]>;
-		host?: NonAttribute<string>;
+		host: string;
 		uniqueName: string;
 		apiKey?: string;
 

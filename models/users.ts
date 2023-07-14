@@ -49,7 +49,7 @@ export namespace users {
 		email: string;
 		password: string;
 		refreshTokenSalt: CreationOptional<string>;
-		roleId: ForeignKey<Role["id"]>;
+		roleId?: number;
 		domainId?: number;
 		active: boolean;
 		createdAt?: CreationOptional<Date>;
