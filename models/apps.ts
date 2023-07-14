@@ -6,8 +6,6 @@ import {
 	InferCreationAttributes,
 	ForeignKey,
 } from "sequelize";
-/* export declare namespace apps {	
-} */
 /**
  * current app's AdminMenus
  */

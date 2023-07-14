@@ -1,5 +1,9 @@
 import { microservices } from "../index.js";
-import { globalData } from "../models/globalData.js";
+import {
+	ServiceRegistry as ServiceRegistryType,
+	App as AppType,
+	Microservice as MicroserviceType,
+} from "../models/globalData.js";
 import { languages } from "../index.js";
 
 /**
@@ -8,7 +12,7 @@ import { languages } from "../index.js";
 export type microserviceRegistryInfo = {
 	mainId?: number;
 	name: microservices;
-	services: Array<globalData.ServiceRegistry>;
+	services: Array<ServiceRegistryType>;
 };
 
 export type serviceRegistry = {
@@ -16,17 +20,17 @@ export type serviceRegistry = {
 };
 
 export type serviceRegistryApp = {
-	[key: string]: globalData.App;
+	[key: string]: AppType;
 };
 
 import { Optional, CreationAttributes } from "sequelize";
 
 export type microserviceOptions = CreationAttributes<
-	Optional<globalData.ServiceRegistry, "MicroserviceId">
+	Optional<ServiceRegistryType, "MicroserviceId">
 > &
-	Pick<globalData.Microservice, "name" | "mainServiceRegistryId">;
+	Pick<MicroserviceType, "name" | "mainServiceRegistryId">;
 
-export type appOptions = CreationAttributes<globalData.App> & {
+export type appOptions = CreationAttributes<AppType> & {
 	language: languages;
 	appType: string;
 };
