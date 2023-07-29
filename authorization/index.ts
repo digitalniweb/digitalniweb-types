@@ -1,77 +1,40 @@
 import {
 	Role as RoleType,
-	Privilege as PrivilegeType,
+	Action as ActionType,
 } from "../models/globalData.js";
+
+import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
+import {
+	mainAuthorizationNames,
+	adminAuthorizationNames,
+	userAuthorizationNames,
+} from "../../digitalniweb-custom/variables/authorization.js";
+
+import { modules } from "../";
 
 export type authorizationListType = {
 	roles?: RoleType[];
-	privileges?: PrivilegeType[];
+	privileges?: ActionType[];	
 };
 
-export type mainAuthorizationNames = "admin" | "user";
+export type mainAuthorizationNames = (typeof mainAuthorizationNames)[number];
 
-export type adminAuthorizationNames = "superadmin" | "admin" | "owner";
+export type adminAuthorizationNames = (typeof adminAuthorizationNames)[number];
 
-export type userAuthorizationNames = "user" | "tenant";
+export type userAuthorizationNames = (typeof userAuthorizationNames)[number];
 
-type adminRoles = {
+export type adminRoles = {
 	[key in adminAuthorizationNames]: number;
 };
 
-type userRoles = {
+export type userRoles = {
 	[key in userAuthorizationNames]: number;
 };
 
-type adminPrivilegesNames =
-	| "articles"
-	| "menu"
-	| "appereance"
-	| "news"
-	| "forms"
-	| "users"
-	| "redirects"
-	| "webinformation"
-	| "owner-information"
-	| "url-information"
-	| "analytics-marketing";
-
-type userPrivilegesNames = "registered" | "premium";
-
-type adminPrivileges = {
-	[key in adminPrivilegesNames]: number;
+export type actions = {
+	[key in (typeof actionNames)[number]]: number;
 };
 
-type userPrivileges = {
-	[key in userPrivilegesNames]: number;
-};
-
-/* 
-	authorizationMap = {
-		roles: {
-			admin: { superadmin: 1,... }, // roleName: roleId
-			user: { tenant: 4,... }
-		},
-		privileges: {
-			admin: { adminPrivilegesNames: 1,... }
-			user: { privilegeName: privilegeId,... }
-		}
-	}
-*/
-/**
- * i.e.:
- *
- * roles->admin->superadmin: number is roleId (id of role)
- *
- * privileges->admin->articles: number is privilegeId (id of privilege)
- */
-export type authorizationMap = {
-	// [key?: keyof authorizationListType]: {};
-	roles?: {
-		admin: adminRoles;
-		user: userRoles;
-	};
-	privileges?: {
-		admin: adminPrivileges;
-		user: userPrivileges;
-	};
+export type usersModulesPrivileges = {
+	[key in modules]?: (typeof actionNames)[];
 };

@@ -10,7 +10,13 @@ import {
 	HasOneSetAssociationMixin,
 	HasOneGetAssociationMixin,
 } from "sequelize";
-import { mainAuthorizationNames } from "../authorization/index";
+import {
+	mainAuthorizationNames,
+	userAuthorizationNames,
+	adminAuthorizationNames,
+} from "../authorization/index";
+
+import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
 import { modules, widgetNames, moduleModels, microservices } from "..";
 export interface Language
 	extends Model<
@@ -43,8 +49,9 @@ export interface Module
 export interface Role
 	extends Model<InferAttributes<Role>, InferCreationAttributes<Role>> {
 	id: CreationOptional<number>;
-	name: string;
 	type: mainAuthorizationNames;
+	// this isn't quite right, I can pick name: 'owner' for type: 'user'
+	name: adminAuthorizationNames | userAuthorizationNames;
 
 	/*
 		Users: NonAttribute<User[]>;
@@ -55,14 +62,15 @@ export interface Role
 		*/
 }
 
-export interface Privilege
-	extends Model<
-		InferAttributes<Privilege>,
-		InferCreationAttributes<Privilege>
-	> {
+/**
+ * 'actions' are events which happen e.g. for logging
+ *
+ * and at the same time they serve as privileges for users
+ */
+export interface Action
+	extends Model<InferAttributes<Action>, InferCreationAttributes<Action>> {
 	id: CreationOptional<number>;
-	name: string;
-	type: mainAuthorizationNames;
+	name: (typeof actionNames)[number];
 }
 export interface Currency
 	extends Model<
@@ -168,7 +176,7 @@ export interface AdminMenu
 	separator?: boolean;
 	ModuleId?: ForeignKey<Module["id"]>;
 	// RoleId: ForeignKey<Role["id"]>; // this should be hasMany
-	// PrivilegeId: ForeignKey<Privilege["id"]>; // I think this isn't necessary
+	// ActionId: ForeignKey<Action["id"]>; // I think this isn't necessary
 }
 
 export interface AdminMenuLanguage

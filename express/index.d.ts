@@ -1,4 +1,8 @@
-import { loginAttempt, possibleRoles } from "..";
+import { loginAttempt } from "..";
+import {
+	adminAuthorizationNames,
+	userAuthorizationNames,
+} from "../authorization";
 type requestLanguageExpansion = {
 	header: string;
 	code: string;
@@ -18,8 +22,7 @@ declare global {
 			antispam?: requestAntispamExpansion;
 			userVerified?: {
 				id: number;
-				roles: possibleRoles[];
-				privileges: string[];
+				role: adminAuthorizationNames | userAuthorizationNames;
 			};
 		}
 	}

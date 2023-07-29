@@ -11,13 +11,6 @@ import {
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
 
-export type possibleRoles =
-	| "superadmin"
-	| "owner"
-	| "admin"
-	| "tenant"
-	| "user";
-
 export type languages = "cs" | "en";
 
 export interface loginAttempt extends CreationAttributes<LoginLog> {}
@@ -45,11 +38,11 @@ export type appInfoType = {
 /**
  * 'module': 'module model'
  *
- * 'module' - name of the module in common english language
+ * 'module' - name of the module in camelCase
  */
 type modulesMap = {
 	articles: "Article";
-	"photo gallery": "PhotoGallery";
+	photoGallery: "PhotoGallery";
 	news: "News";
 };
 
@@ -57,9 +50,9 @@ export type modules = keyof modulesMap;
 export type moduleModels = modulesMap[keyof modulesMap];
 
 /**
- * 'widget': 'widget name'
+ * 'widget': 'widget model'
  *
- * 'widget' - name of the widget in common english language
+ * 'widget' - name of the widget in camelCase
  */
 type widgetsMap = {
 	text: "Text";

@@ -36,7 +36,7 @@ export interface Tenant
 	vatId?: string;
 	subscribeNewsletters: boolean;
 
-	getUser: BelongsToGetAssociationMixin<User>;
+	findUser: BelongsToGetAssociationMixin<User>;
 }
 export interface User
 	extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
