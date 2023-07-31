@@ -9,6 +9,7 @@ import {
 	BelongsToGetAssociationMixin,
 	HasOneSetAssociationMixin,
 	HasOneGetAssociationMixin,
+	HasOneCreateAssociationMixin,
 } from "sequelize";
 import {
 	mainAuthorizationNames,
@@ -46,10 +47,20 @@ export interface Module
 	usersRoleId?: number;
 	creditsCost?: number; // per month
 }
+export interface RoleType
+	extends Model<
+		InferAttributes<RoleType>,
+		InferCreationAttributes<RoleType>
+	> {
+	id: CreationOptional<number>;
+	name: mainAuthorizationNames;
+
+	createRole: HasOneCreateAssociationMixin<Role>;
+}
 export interface Role
 	extends Model<InferAttributes<Role>, InferCreationAttributes<Role>> {
 	id: CreationOptional<number>;
-	type: mainAuthorizationNames;
+	RoleTypeId: ForeignKey<RoleType["id"]>;
 	// this isn't quite right, I can pick name: 'owner' for type: 'user'
 	name: adminAuthorizationNames | userAuthorizationNames;
 
