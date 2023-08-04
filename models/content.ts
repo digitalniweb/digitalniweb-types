@@ -7,7 +7,7 @@ import {
 } from "sequelize";
 /**
  * Articles are 'main menu'
- * @param parentId id of the parent Article a.k.a. menu
+ * @property parentId id of the parent Article a.k.a. menu
  */
 export interface Article
 	extends Model<InferAttributes<Article>, InferCreationAttributes<Article>> {

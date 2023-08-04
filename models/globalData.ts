@@ -35,16 +35,16 @@ export interface AppType
 	name: string;
 }
 
-/**
- * @property {string} name This is name how we refer to this model i.e. 'photoGallery'
- * @property {string|null} model Name of the model i.e. 'PhotoGallery'
+/** *
+ * @property {string} name Name how we refer to this model i.e. 'photoGallery'
+ * @property {moduleModels|null} model Name of the model i.e. 'PhotoGallery'
+ * @note If needed then add moduleRoles manyToMany associations. For now authorization is handled in modules, not on DB layer.
  */
 export interface Module
 	extends Model<InferAttributes<Module>, InferCreationAttributes<Module>> {
 	id: CreationOptional<number>;
-	name: modules; // english name
-	model?: moduleModels; // model name
-	usersRoleId?: number;
+	name: modules;
+	model?: moduleModels;
 	creditsCost?: number; // per month
 }
 export interface RoleType
@@ -165,6 +165,9 @@ export interface Widget
 	widgetName: widgetNames;
 }
 
+/**
+ * @property RoleId if filled out then that role is required (i.e. 1 - then only 'superadmin' has privileges to see / access this AdminMenu)
+ */
 export interface AdminMenu
 	extends Model<
 		InferAttributes<AdminMenu>,
@@ -186,7 +189,7 @@ export interface AdminMenu
 	isDefault: boolean;
 	separator?: boolean;
 	ModuleId?: ForeignKey<Module["id"]>;
-	// RoleId: ForeignKey<Role["id"]>; // this should be hasMany
+	RoleId?: ForeignKey<Role["id"]>;
 	// ActionId: ForeignKey<Action["id"]>; // I think this isn't necessary
 }
 
