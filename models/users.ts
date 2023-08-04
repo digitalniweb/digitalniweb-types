@@ -64,7 +64,7 @@ export interface UserPrivilege
 		InferCreationAttributes<UserPrivilege>
 	> {
 	UserId: CreationOptional<number>;
-	privilegeId: CreationOptional<number>;
+	actionId: CreationOptional<number>;
 }
 export interface Blacklist
 	extends Model<
