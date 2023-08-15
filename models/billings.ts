@@ -11,17 +11,12 @@ export interface Invoice
 	invoiceNumber: string;
 	amount: number;
 	currencyId: number;
-	StatusId: ForeignKey<Status["id"]>;
+	statusId: number;
 	CreditBalanceLogId?: ForeignKey<CreditBalanceLog["id"]>;
 	dueDate: Date;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
-}
-export interface Status
-	extends Model<InferAttributes<Status>, InferCreationAttributes<Status>> {
-	id: CreationOptional<number>;
-	name: string;
 }
 export interface CreditBalanceLog
 	extends Model<

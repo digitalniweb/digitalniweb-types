@@ -19,6 +19,7 @@ import {
 
 import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
 import { modules, widgetNames, moduleModels, microservices } from "..";
+import { statuses } from "../customHelpers/statuses";
 export interface Language
 	extends Model<
 		InferAttributes<Language>,
@@ -82,6 +83,11 @@ export interface Action
 	extends Model<InferAttributes<Action>, InferCreationAttributes<Action>> {
 	id: CreationOptional<number>;
 	name: (typeof actionNames)[number];
+}
+export interface Status
+	extends Model<InferAttributes<Status>, InferCreationAttributes<Status>> {
+	id: CreationOptional<number>;
+	name: statuses;
 }
 export interface Currency
 	extends Model<
