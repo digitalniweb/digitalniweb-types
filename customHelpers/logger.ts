@@ -53,6 +53,7 @@ export type logObject = {
 	code?: number;
 	type: logTypes;
 	status?: statuses;
+	date?: string;
 };
 
 /**
