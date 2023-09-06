@@ -41,6 +41,10 @@ export interface Tenant
 export interface User
 	extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
 	id: CreationOptional<number>;
+	/**
+	 * If `null` don't show anywhere
+	 */
+	credit?: number;
 	nickname?: string;
 	email: string;
 	password: string;
