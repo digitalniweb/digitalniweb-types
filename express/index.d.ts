@@ -22,6 +22,7 @@ declare global {
 			antispam?: requestAntispamExpansion;
 			userVerified?: {
 				id: number;
+				msId: number;
 				role: adminAuthorizationNames | userAuthorizationNames;
 			};
 		}

@@ -32,6 +32,8 @@ export type customLogObject = {
 	date?: string;
 	type: logTypes;
 	status?: statuses;
+	serviceType?: "microservice" | "app";
+	serviceId?: number;
 };
 
 /**
