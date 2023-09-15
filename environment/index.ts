@@ -6,6 +6,8 @@ declare global {
 			MICROSERVICE_UNIQUE_NAME: string;
 			MICROSERVICE_API_KEY: string;
 
+			MICROSERVICE_ID: number;
+
 			GLOBALDATA_REGISTRY_API_KEY: string;
 
 			APP_NAME: apps;
@@ -13,6 +15,8 @@ declare global {
 			APP_API_KEY: string;
 			APP_TYPE: appsTypes;
 			DEFAULT_LANGUAGE: languages;
+
+			APP_ID: number;
 
 			HOST: string;
 			PORT: number;
