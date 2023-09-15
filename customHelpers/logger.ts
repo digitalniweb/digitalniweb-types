@@ -1,6 +1,7 @@
 import { logTypes } from "../../digitalniweb-custom/variables/logs";
 import HTTPMethods from "../httpMethods";
 import { statuses } from "./statuses";
+import { Request } from "express";
 
 /**
  * commonly occured properties of Error object.
@@ -31,6 +32,7 @@ export type customLogObject = {
 	data?: any;
 	date?: string;
 	type: logTypes;
+	req?: Partial<Request>;
 	status?: statuses;
 	serviceType?: "microservice" | "app";
 	serviceId?: number;
