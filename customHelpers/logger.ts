@@ -24,6 +24,8 @@ export type commonError = {
  * @property {string|undefined} date UTC 0 time zone JS date (`digitalniweb-custom -> functions -> dateFunctions -> getUTCDateTime()`)
  * @property {logTypes} type "api", "consoleLog"... If there is `code` or `error.code` then type='http'
  * @property {statuses} status "error", "warning"... Makes the error colored.
+ * @property {"ms"|"app"} serviceType if current service is 'microservice' or 'app'
+ * @property {number} serviceId process.env.MICROSERVICE_ID or process.env.APP_ID depending on 'serviceType'
  */
 export type customLogObject = {
 	error?: commonError | string;
