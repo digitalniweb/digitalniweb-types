@@ -8,7 +8,7 @@ import {
 	appsArray,
 	appsTypesArray,
 } from "../digitalniweb-custom/variables/apps.js";
-import { languages } from "~/digitalniweb-custom/variables/languages.js";
+import { languages } from "../digitalniweb-custom/variables/languages.js";
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
 
