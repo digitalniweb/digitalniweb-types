@@ -8,10 +8,11 @@ import {
 	appsArray,
 	appsTypesArray,
 } from "../digitalniweb-custom/variables/apps.js";
+import { languages } from "~/digitalniweb-custom/variables/languages.js";
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
 
-export type languages = "cs" | "en";
+export type languages = (typeof languages)[number];
 
 export interface loginAttempt extends CreationAttributes<LoginLog> {}
 
