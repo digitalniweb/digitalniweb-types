@@ -20,6 +20,7 @@ import {
 import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
 import { modules, widgetNames, moduleModels, microservices } from "..";
 import { statuses } from "../customHelpers/statuses";
+import { languages } from "../../digitalniweb-custom/variables/languages";
 export interface Language
 	extends Model<
 		InferAttributes<Language>,
@@ -27,7 +28,7 @@ export interface Language
 	> {
 	id: CreationOptional<number>;
 	name: string;
-	code: string;
+	code: (typeof languages)[number];
 	icon: string;
 }
 export interface AppType
