@@ -9,8 +9,12 @@ import {
 	appsTypesArray,
 } from "../digitalniweb-custom/variables/apps.js";
 import { languages } from "../digitalniweb-custom/variables/languages.js";
+import { Language } from "./models/globalData.js";
+
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
+
+export type appLanguages = { [key in languages]: Language };
 
 export type languages = (typeof languages)[number];
 
