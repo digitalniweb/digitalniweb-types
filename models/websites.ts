@@ -45,6 +45,10 @@ export interface Website
 	createAlias: HasManyCreateAssociationMixin<Url, "id">;
 	createMainUrl: BelongsToCreateAssociationMixin<Url>;
 	setMainUrl: BelongsToCreateAssociationMixin<Url>;
+	setWebsiteLanguageMutations: HasManySetAssociationsMixin<
+		WebsiteLanguageMutation,
+		number
+	>;
 }
 
 export interface WebsiteModule

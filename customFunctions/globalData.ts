@@ -30,7 +30,7 @@ export type microserviceOptions = CreationAttributes<
 > &
 	Pick<MicroserviceType, "name" | "mainServiceRegistryId">;
 
-export type appOptions = CreationAttributes<AppType> & {
+export type newAppOptions = CreationAttributes<AppType> & {
 	language: languages;
 	appType: string;
 };
