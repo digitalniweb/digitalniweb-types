@@ -67,6 +67,7 @@ export interface UserPrivilege
 		InferAttributes<UserPrivilege>,
 		InferCreationAttributes<UserPrivilege>
 	> {
+	id: CreationOptional<number>;
 	UserId: CreationOptional<number>;
 	actionId: CreationOptional<number>;
 }

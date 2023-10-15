@@ -12,6 +12,7 @@ import {
 	HasManyCountAssociationsMixin,
 	HasManyRemoveAssociationsMixin,
 } from "sequelize";
+import { languages } from "..";
 export interface Url
 	extends Model<InferAttributes<Url>, InferCreationAttributes<Url>> {
 	id: CreationOptional<number>;
@@ -35,6 +36,11 @@ export interface Website
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
+	languages?: number[] | languages[]; // other languages without main language
+	WebsiteLanguageMutations?: Omit<
+		InferCreationAttributes<WebsiteLanguageMutation>,
+		"id" | "WebsiteId"
+	>[]; // other languages without main language
 
 	setAliases: HasManySetAssociationsMixin<Url, number>;
 	addAliases: HasManyAddAssociationsMixin<Url, number>;
@@ -69,6 +75,7 @@ export interface WebsiteLanguageMutation
 		InferAttributes<WebsiteLanguageMutation>,
 		InferCreationAttributes<WebsiteLanguageMutation>
 	> {
+	id: CreationOptional<number>;
 	WebsiteId: CreationOptional<number>;
 	languageId: CreationOptional<number>;
 }
