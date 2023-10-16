@@ -69,3 +69,8 @@ export type widgetNames = widgetsMap[keyof widgetsMap];
 export type appInfoParametersType = keyof appInfoType;
 
 export type webInformationNames = (typeof webInformationNames)[number];
+export type webinformationChannels = {
+	name: string;
+	url: string;
+	icon: string;
+}[];

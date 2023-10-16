@@ -62,7 +62,7 @@ export interface WebInformation
 	> {
 	id: CreationOptional<number>;
 	name: webInformationNames;
-	value?: string | number;
+	value: string;
 	websiteId: number;
 	websitesMsId: number;
 }
