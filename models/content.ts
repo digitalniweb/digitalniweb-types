@@ -5,6 +5,7 @@ import {
 	InferCreationAttributes,
 	ForeignKey,
 } from "sequelize";
+import { webInformationNames } from "..";
 /**
  * Articles are 'main menu'
  * @property parentId id of the parent Article a.k.a. menu
@@ -53,4 +54,15 @@ export interface WidgetContent
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
+}
+export interface WebInformation
+	extends Model<
+		InferAttributes<WebInformation>,
+		InferCreationAttributes<WebInformation>
+	> {
+	id: CreationOptional<number>;
+	name: webInformationNames;
+	value?: string | number;
+	websiteId: number;
+	websitesMsId: number;
 }
