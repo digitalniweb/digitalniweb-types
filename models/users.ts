@@ -1,3 +1,4 @@
+import { UUID } from "node:crypto";
 import {
 	Sequelize,
 	ModelDefined,
@@ -41,8 +42,9 @@ export interface Tenant
 export interface User
 	extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
 	id: CreationOptional<number>;
+	uuid: CreationOptional<UUID>;
 	/**
-	 * If `null` don't show anywhere
+	 * If credit is `null` then don't show information about credit or show some other information, not 0
 	 */
 	credit?: number;
 	nickname?: string;

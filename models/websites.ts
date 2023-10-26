@@ -13,6 +13,7 @@ import {
 	HasManyRemoveAssociationsMixin,
 } from "sequelize";
 import { languages } from "..";
+import { UUID } from "node:crypto";
 export interface Url
 	extends Model<InferAttributes<Url>, InferCreationAttributes<Url>> {
 	id: CreationOptional<number>;
@@ -23,7 +24,7 @@ export interface Url
 export interface Website
 	extends Model<InferAttributes<Website>, InferCreationAttributes<Website>> {
 	id: CreationOptional<number>;
-	uniqueName: CreationOptional<string>;
+	uuid: CreationOptional<UUID>;
 	contentMsId: CreationOptional<number>;
 	MainUrlId?: number;
 	userId?: number;
