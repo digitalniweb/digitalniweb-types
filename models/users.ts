@@ -1,22 +1,12 @@
-import { UUID } from "node:crypto";
 import {
-	Sequelize,
-	ModelDefined,
-	Association,
 	Model,
 	CreationOptional,
 	InferAttributes,
 	InferCreationAttributes,
-	HasManyGetAssociationsMixin,
-	HasManyCreateAssociationMixin,
-	NonAttribute,
-	CreationAttributes,
 	BelongsToGetAssociationMixin,
-	ModelAttributes,
-	AssociationOptions,
-	HasOneGetAssociationMixin,
 	ForeignKey,
 } from "sequelize";
+import { UUID } from "node:crypto";
 export interface Tenant
 	extends Model<InferAttributes<Tenant>, InferCreationAttributes<Tenant>> {
 	id: CreationOptional<number>;
