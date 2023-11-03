@@ -17,6 +17,8 @@ declare global {
 			DEFAULT_LANGUAGE: languages;
 
 			APP_ID: number;
+			APP_CONTENT_MS_ID: number;
+			APP_WEBSITES_MS_ID: number;
 
 			HOST: string;
 			PORT: number;
