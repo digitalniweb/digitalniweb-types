@@ -1,4 +1,7 @@
 import { microservices } from "../../..";
+
+// ServiceRegistry model exists only in 'Microservices', not in 'Apps'
+// @ts-ignore
 import ServiceRegistry from "../../../../server/models/globalData/serviceRegistry";
 import {
 	microserviceOptions,
