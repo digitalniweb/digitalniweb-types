@@ -1,5 +1,5 @@
-import { microservices } from "~/digitalniweb-types";
-import HTTPMethods from "~/digitalniweb-types/httpMethods";
+import { microservices } from "../../../digitalniweb-types";
+import HTTPMethods from "../../../digitalniweb-types/httpMethods";
 
 /**
  * @property { [key: string]: any } `data` POST data
