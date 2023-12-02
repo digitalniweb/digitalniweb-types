@@ -19,3 +19,11 @@ export type msCallOptions = {
 	scope?: "single" | "all";
 	timeout?: number;
 };
+
+export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
+
+/**
+ * data - cached response data information
+ * shardId - cached microservice shard id of 'all' request for particular information (e.g. 'websites' shard id for 'digitalweb.cz' url)
+ */
+export type apiAppCacheType = "data" | "shardId";
