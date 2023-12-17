@@ -76,9 +76,15 @@ export type webinformationChannels = {
 	icon: string;
 }[];
 
+/**
+ * @param `email` login string
+ * @param `password` password string
+ * @param `ua` user-agent header string
+ */
 export type loginInformation = {
 	email: string;
 	password: string;
+	ua?: string;
 };
 export type loggedUser = Omit<
 	InferAttributes<User>,
