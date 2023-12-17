@@ -1,6 +1,6 @@
-import { CreationAttributes } from "sequelize";
+import { CreationAttributes, InferAttributes } from "sequelize";
 
-import { LoginLog } from "./models/users.js";
+import { LoginLog, User } from "./models/users.js";
 import { microservicesArray } from "../digitalniweb-custom/variables/microservices.js";
 export type microservices = (typeof microservicesArray)[number];
 
@@ -11,6 +11,7 @@ import {
 import { languages } from "../digitalniweb-custom/variables/languages.js";
 import { Language } from "./models/globalData.js";
 import { webInformationNames } from "../digitalniweb-custom/variables/webInformation.js";
+import { omittedLoggedUserParams } from "../digitalniweb-custom/variables/user.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
@@ -74,3 +75,12 @@ export type webinformationChannels = {
 	url: string;
 	icon: string;
 }[];
+
+export type loginInformation = {
+	email: string;
+	password: string;
+};
+export type loggedUser = Omit<
+	InferAttributes<User>,
+	(typeof omittedLoggedUserParams)[number]
+>;
