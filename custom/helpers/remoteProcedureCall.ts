@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import { microservices } from "../../../digitalniweb-types";
 import HTTPMethods from "../../../digitalniweb-types/httpMethods";
 
@@ -27,3 +28,7 @@ export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
  * shardId - cached microservice shard id of 'all' request for particular information (e.g. 'websites' shard id for 'digitalweb.cz' url)
  */
 export type apiAppCacheType = "data" | "shardId";
+
+export type remoteCallResponse =
+	| AxiosResponse<any, any>
+	| { data: any; status: number };
