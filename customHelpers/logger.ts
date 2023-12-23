@@ -13,6 +13,7 @@ export type commonError = {
 	name?: string;
 	stack?: string;
 	code?: number;
+	[key: string]: any;
 };
 
 /**
@@ -74,4 +75,5 @@ export type logObject = {
 export type responseLogObject = {
 	code: number;
 	message: string;
+	error?: commonError | string;
 };
