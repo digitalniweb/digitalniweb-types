@@ -14,6 +14,8 @@ declare global {
 			APP_UNIQUE_NAME: string;
 			APP_API_KEY: string;
 			APP_TYPE: appsTypes;
+			APP_ACCESS_TOKEN_SECRET: string;
+			APP_REFRESH_TOKEN_SECRET: string;
 			DEFAULT_LANGUAGE: languages;
 
 			APP_ID: number;

@@ -86,7 +86,8 @@ export type loginInformation = {
 	password: string;
 	ua?: string;
 };
-export type loggedUser = Omit<
-	InferAttributes<User>,
-	(typeof omittedLoggedUserParams)[number]
->;
+export type loggedUser =
+	| Omit<InferAttributes<User>, (typeof omittedLoggedUserParams)[number]> & {
+			refresh_token: string;
+			token: string;
+	  };
