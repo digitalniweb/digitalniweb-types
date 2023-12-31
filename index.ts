@@ -9,7 +9,7 @@ import {
 	appsTypesArray,
 } from "../digitalniweb-custom/variables/apps.js";
 import { languages } from "../digitalniweb-custom/variables/languages.js";
-import { Language } from "./models/globalData.js";
+import { Language, Role } from "./models/globalData.js";
 import { webInformationNames } from "../digitalniweb-custom/variables/webInformation.js";
 import { omittedLoggedUserParams } from "../digitalniweb-custom/variables/user.js";
 
@@ -90,4 +90,6 @@ export type loggedUser =
 	| Omit<InferAttributes<User>, (typeof omittedLoggedUserParams)[number]> & {
 			refresh_token: string;
 			token: string;
+	  } & {
+			role: Role;
 	  };

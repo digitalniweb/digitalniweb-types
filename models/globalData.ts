@@ -65,6 +65,7 @@ export interface Role
 	RoleTypeId: ForeignKey<RoleType["id"]>;
 	// this isn't quite right, I can pick name: 'owner' for type: 'user'
 	name: adminAuthorizationNames | userAuthorizationNames;
+	RoleType?: RoleType;
 
 	/*
 		Users: NonAttribute<User[]>;
