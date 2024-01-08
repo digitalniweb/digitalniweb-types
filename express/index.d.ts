@@ -17,13 +17,15 @@ type requestAntispamExpansion = {
 
 declare global {
 	namespace Express {
-		export interface Request {
-			lang?: requestLanguageExpansion;
-			antispam?: requestAntispamExpansion;
-			userVerified?: {
-				id: number;
-				msId: number;
-				role: adminAuthorizationNames | userAuthorizationNames;
+		export interface Response {
+			locals: {
+				lang?: requestLanguageExpansion;
+				antispam?: requestAntispamExpansion;
+				userVerified?: {
+					id: number;
+					usersMsId: number;
+					role: adminAuthorizationNames | userAuthorizationNames;
+				};
 			};
 		}
 	}
