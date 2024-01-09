@@ -43,11 +43,13 @@ export interface User
 	refreshTokenSalt: CreationOptional<string>;
 	roleId?: number;
 	websiteId?: number;
+	websitesMsId?: number;
 	active: boolean;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
 	Tenant?: Tenant;
+	UserPrivileges?: UserPrivilege[];
 	/* Privileges: NonAttribute<Privilege[]>;
 
 		addPrivileges: HasManyAddAssociationsMixin<Privilege, number>;

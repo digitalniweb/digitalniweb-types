@@ -11,7 +11,6 @@ import {
 import { languages } from "../digitalniweb-custom/variables/languages.js";
 import { Language, Role } from "./models/globalData.js";
 import { webInformationNames } from "../digitalniweb-custom/variables/webInformation.js";
-import { omittedLoggedUserParams } from "../digitalniweb-custom/variables/user.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
@@ -86,10 +85,35 @@ export type loginInformation = {
 	password: string;
 	ua?: string;
 };
-export type loggedUser =
-	| Omit<InferAttributes<User>, (typeof omittedLoggedUserParams)[number]> & {
-			refresh_token: string;
-			token: string;
-	  } & {
-			role: Role;
-	  };
+
+// whenever we add another parameter in here we need to add this parameter name to 'userLoginResponse' array in 'digitalniwe-custom/variables/user.ts' as well
+export type pickUserLoginResponse = Pick<
+	InferAttributes<User>,
+	| "uuid"
+	| "id"
+	| "nickname"
+	| "email"
+	| "roleId"
+	| "credit"
+	| "Tenant"
+	| "UserPrivileges"
+	| "websiteId"
+	| "websitesMsId"
+>;
+
+// authenticated user response in apps
+export type userLoginResponse = pickUserLoginResponse & {
+	refresh_token: string;
+	access_token: string;
+	role: Role;
+	usersMsId: number;
+};
+
+// autenticated user data in ms: res.locals.userVerified
+export type userVerified = {};
+
+// autenticated user data in jwt
+export type userJWT = {};
+
+// autenticated user in store (in app)
+export type userStore = {};

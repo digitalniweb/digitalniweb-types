@@ -29,6 +29,18 @@ export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
  */
 export type apiAppCacheType = "data" | "shardId";
 
-export type remoteCallResponse =
-	| AxiosResponse<any, any>
-	| { data: any; status: number };
+/**
+ * "x-ms-id" and "x-app-id" are strings because headers are all type of string even though it is a number
+ * "x-ms-id" = process.env.MICROSERVICE_ID - every microservice should return this in response' header (= i.e. 'usersMsId')
+ * "x-app-id" = process.env.APP_ID - we can add app's id to header (this is not automatic))
+ */
+export type cachedResponseData = {
+	data: any;
+	status: number;
+	headers?: {
+		"x-ms-id"?: string;
+		"x-app-id"?: string;
+	};
+};
+
+export type remoteCallResponse = AxiosResponse<any, any> | cachedResponseData;
