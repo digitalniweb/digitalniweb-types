@@ -42,7 +42,7 @@ export interface User
 	password: string;
 	refreshTokenSalt: CreationOptional<string>;
 	roleId?: number;
-	domainId?: number;
+	websiteId?: number;
 	active: boolean;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
