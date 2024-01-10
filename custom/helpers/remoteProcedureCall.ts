@@ -32,7 +32,7 @@ export type apiAppCacheType = "data" | "shardId";
 /**
  * "x-ms-id" and "x-app-id" are strings because headers are all type of string even though it is a number
  * "x-ms-id" = process.env.MICROSERVICE_ID - every microservice should return this in response' header (= i.e. 'usersMsId')
- * "x-app-id" = process.env.APP_ID - we can add app's id to header (this is not automatic))
+ * "x-app-id" = process.env.APP_ID - we can add app's id to header (this is not automatic, because Nuxt can't do this at this moment, when it will be possible, add this)
  */
 export type cachedResponseData = {
 	data: any;

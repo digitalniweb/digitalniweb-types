@@ -1,0 +1,49 @@
+import { InferAttributes } from "sequelize";
+import { User } from "./models/users";
+import { Role } from "./models/globalData";
+
+// !!! whenever we add another parameter in any of these types we need to add this parameter name to corresponding array in 'digitalniwe-custom/variables/user.ts' as well
+export type pickUserLoginResponse = Pick<
+	InferAttributes<User>,
+	| "uuid"
+	| "id"
+	| "nickname"
+	| "email"
+	| "roleId"
+	| "credit"
+	| "Tenant"
+	| "UserPrivileges"
+	| "websiteId"
+	| "websitesMsId"
+>;
+
+// authenticated user response in apps
+export type userLoginResponse = pickUserLoginResponse & {
+	refresh_token: string;
+	access_token: string;
+	role: Role;
+	usersMsId: number;
+};
+
+// autenticated user data in ms: res.locals.userVerified
+export type userVerified = Pick<
+	userLoginResponse,
+	| "uuid"
+	| "id"
+	| "role"
+	| "websiteId"
+	| "websitesMsId"
+	| "usersMsId"
+	| "UserPrivileges"
+	| "credit"
+>;
+
+// autenticated user data in jwt
+export type userJWT = userVerified &
+	Pick<userLoginResponse, "nickname" | "email">;
+
+// autenticated user in store (in app)
+export type userStore = Omit<
+	userLoginResponse,
+	"refresh_token" | "access_token" | "roleId"
+>;
