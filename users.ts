@@ -38,9 +38,15 @@ export type userVerified = Pick<
 	| "credit"
 >;
 
-// autenticated user data in jwt
+// autenticated user data in jwt / access_token
 export type userJWT = userVerified &
 	Pick<userLoginResponse, "nickname" | "email">;
+
+// refresh_token data
+export type userRefreshToken = Pick<
+	userLoginResponse,
+	"id" | "uuid" | "usersMsId"
+>;
 
 // autenticated user in store (in app)
 export type userStore = Omit<
