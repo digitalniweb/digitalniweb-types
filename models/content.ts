@@ -24,6 +24,7 @@ export interface Article
 	treeLevel: number;
 	parentId: ForeignKey<Article["id"]>;
 	websiteId: number;
+	websitesMsId: number;
 	title: string;
 	description: string;
 	image: string;
