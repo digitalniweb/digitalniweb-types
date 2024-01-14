@@ -2,6 +2,12 @@ import { InferAttributes } from "sequelize";
 import { User } from "./models/users";
 import { Role } from "./models/globalData";
 
+export type tokenType = "access" | "refresh";
+export type tokenInfo = {
+	token: string;
+	type: tokenType;
+};
+
 // !!! whenever we add another parameter in any of these types we need to add this parameter name to corresponding array in 'digitalniwe-custom/variables/user.ts' as well
 export type pickUserLoginResponse = Pick<
 	InferAttributes<User>,
