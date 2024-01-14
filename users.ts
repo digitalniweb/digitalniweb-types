@@ -27,7 +27,7 @@ export type pickUserLoginResponse = Pick<
 export type userLoginResponse = pickUserLoginResponse & {
 	refresh_token: string;
 	access_token: string;
-	role: Role;
+	role: InferAttributes<Role>;
 	usersMsId: number;
 };
 

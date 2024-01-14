@@ -1,6 +1,7 @@
 import { AxiosResponse } from "axios";
 import { microservices } from "../../../digitalniweb-types";
 import HTTPMethods from "../../../digitalniweb-types/httpMethods";
+import { InferAttributes, Model } from "sequelize";
 
 /**
  * @property { [key: string]: any } `data` POST data
@@ -29,18 +30,23 @@ export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
  */
 export type apiAppCacheType = "data" | "shardId";
 
+type msIdHeaders = {
+	"x-ms-id"?: string;
+	"x-app-id"?: string;
+};
+
 /**
  * "x-ms-id" and "x-app-id" are strings because headers are all type of string even though it is a number
  * "x-ms-id" = process.env.MICROSERVICE_ID - every microservice should return this in response' header (= i.e. 'usersMsId')
  * "x-app-id" = process.env.APP_ID - we can add app's id to header (this is not automatic, because Nuxt can't do this at this moment, when it will be possible, add this)
  */
-export type cachedResponseData = {
-	data: any;
+export type cachedResponseData<T> = {
+	data: T;
 	status: number;
-	headers?: {
-		"x-ms-id"?: string;
-		"x-app-id"?: string;
-	};
+	headers?: msIdHeaders;
 };
 
-export type remoteCallResponse = AxiosResponse<any, any> | cachedResponseData;
+export type remoteCallResponse<T> =
+	| { data: null; status: number; headers?: msIdHeaders }
+	| AxiosResponse<T | null, any>
+	| cachedResponseData<T>;

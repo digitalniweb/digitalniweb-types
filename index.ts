@@ -1,4 +1,4 @@
-import { CreationAttributes } from "sequelize";
+import { CreationAttributes, InferAttributes } from "sequelize";
 
 import { LoginLog } from "./models/users.js";
 import { microservicesArray } from "../digitalniweb-custom/variables/microservices.js";
@@ -15,7 +15,7 @@ import { webInformationNames } from "../digitalniweb-custom/variables/webInforma
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
 
-export type appLanguages = { [key in languages]: Language };
+export type appLanguages = { [key in languages]: InferAttributes<Language> };
 
 export type languages = (typeof languages)[number];
 
