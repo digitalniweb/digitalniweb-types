@@ -10,7 +10,6 @@ import {
 } from "../digitalniweb-custom/variables/apps.js";
 import { languages } from "../digitalniweb-custom/variables/languages.js";
 import { Language } from "./models/globalData.js";
-import { webInformationNames } from "../digitalniweb-custom/variables/webInformation.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
@@ -68,8 +67,7 @@ export type widgetNames = widgetsMap[keyof widgetsMap];
 
 export type appInfoParametersType = keyof appInfoType;
 
-export type webInformationNames = (typeof webInformationNames)[number];
-export type webinformationChannels = {
+export type webInformationSocialMedia = {
 	name: string;
 	url: string;
 	icon: string;

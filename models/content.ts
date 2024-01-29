@@ -5,7 +5,6 @@ import {
 	InferCreationAttributes,
 	ForeignKey,
 } from "sequelize";
-import { webInformationNames } from "..";
 /**
  * Articles are 'main menu'
  * @property parentId id of the parent Article a.k.a. menu
@@ -62,8 +61,34 @@ export interface WebInformation
 		InferCreationAttributes<WebInformation>
 	> {
 	id: CreationOptional<number>;
-	name: webInformationNames;
-	value: string;
+	name: string;
+	description?: string;
+	titlePostfix?: string;
+	motto?: string;
+	mainImage?: string;
+	logo?: string;
+	favicon: string;
+	googleTagManager?: string;
+	googleTagManagerActive: boolean;
+	socialMedia?: string;
+	languageId: number;
 	websiteId: number;
 	websitesMsId: number;
+	owner: string;
+	tin?: string;
+	vatId?: string;
+	country?: string;
+	city?: string;
+	zip?: string;
+	streetAddress?: string;
+	landRegistryNumber?: string;
+	houseNumber?: string;
+	addressPattern?: string;
+	fullAddress?: string;
+	telephone?: string;
+	email: string;
+	bankName?: string;
+	bankAccountNumber?: string;
+	bankCode?: string;
+	bankIBAN?: string;
 }
