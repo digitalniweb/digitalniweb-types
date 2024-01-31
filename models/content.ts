@@ -91,4 +91,7 @@ export interface WebInformation
 	bankAccountNumber?: string;
 	bankCode?: string;
 	bankIBAN?: string;
+	createdAt?: CreationOptional<Date>;
+	updatedAt?: CreationOptional<Date>;
+	deletedAt?: Date;
 }
