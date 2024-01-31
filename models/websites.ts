@@ -43,7 +43,7 @@ export interface Website
 		InferCreationAttributes<WebsiteLanguageMutation>,
 		"id" | "WebsiteId"
 	>[]; // other languages without main language
-	websiteMsId?: NonAttribute<number>; // added in hook
+	websitesMsId?: NonAttribute<number>; // added in hook
 
 	setAliases: HasManySetAssociationsMixin<Url, number>;
 	addAliases: HasManyAddAssociationsMixin<Url, number>;
