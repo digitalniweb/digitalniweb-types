@@ -1,6 +1,12 @@
-import { globalDataListWhereMap } from "../../../../digitalniweb-custom/variables/globaldata";
 import { languages } from "../../../../digitalniweb-types";
-export type globalDataModelsListMap = typeof globalDataListWhereMap;
+import {
+	Role,
+	Language,
+} from "../../../../digitalniweb-types/models/globalData";
+export type globalDataModelsListMapType = {
+	roles: Role;
+	languages: Language;
+};
 
 export type globalDataListWhereMap = {
 	id?: number[];
