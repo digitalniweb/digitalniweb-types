@@ -62,35 +62,49 @@ export interface WebInformation
 	> {
 	id: CreationOptional<number>;
 	name: string;
-	description?: string;
-	titlePostfix?: string;
-	motto?: string;
 	mainImage?: string;
 	logo?: string;
-	favicon: string;
+	favicon?: string;
 	googleTagManager?: string;
 	googleTagManagerActive: boolean;
-	socialMedia?: string;
-	languageId: number;
 	websiteId: number;
 	websitesMsId: number;
 	owner: string;
 	tin?: string;
 	vatId?: string;
-	country?: string;
-	city?: string;
-	zip?: string;
-	streetAddress?: string;
+	country: string;
+	city: string;
+	zip: string;
+	streetAddress: string;
 	landRegistryNumber?: string;
-	houseNumber?: string;
+	houseNumber: string;
 	addressPattern?: string;
-	fullAddress?: string;
-	telephone?: string;
+	fullAddress: string;
+	telephone: string;
 	email: string;
 	bankName?: string;
 	bankAccountNumber?: string;
 	bankCode?: string;
 	bankIBAN?: string;
+	createdAt?: CreationOptional<Date>;
+	updatedAt?: CreationOptional<Date>;
+	deletedAt?: Date;
+}
+export interface WebInformationLanguage
+	extends Model<
+		InferAttributes<WebInformationLanguage>,
+		InferCreationAttributes<WebInformationLanguage>
+	> {
+	id: CreationOptional<number>;
+	WebInformationId: ForeignKey<WebInformation["id"]>;
+	name?: string;
+	description?: string;
+	motto?: string;
+	titlePostfix?: string;
+	mainImage?: string;
+	logo?: string;
+	socialMedia?: string;
+	languageId: number;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
