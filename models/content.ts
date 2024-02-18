@@ -89,6 +89,8 @@ export interface WebInformation
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
+
+	WebInformationLanguages?: WebInformationLanguage[];
 }
 export interface WebInformationLanguage
 	extends Model<
