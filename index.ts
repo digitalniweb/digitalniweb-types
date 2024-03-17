@@ -41,39 +41,6 @@ export type appInfoType = {
 };
 
 /**
- * 'module': 'module model'
- *
- * 'module' - name of the module in camelCase
- */
-type modulesMap = {
-	articles: "Article";
-	photoGallery: "PhotoGallery";
-	news: "News";
-};
-
-export type modules = keyof modulesMap;
-export type moduleModels = modulesMap[keyof modulesMap];
-
-/**
- * 'widget': 'widget model'
- *
- * 'widget' - name of the widget in camelCase
- */
-type widgetsMap = {
-	text: "Text";
-};
-export type widgets = keyof widgetsMap;
-export type widgetNames = widgetsMap[keyof widgetsMap];
-
-export type appInfoParametersType = keyof appInfoType;
-
-export type webInformationSocialMedia = {
-	name: string;
-	url: string;
-	icon: string;
-}[];
-
-/**
  * @param `email` login string
  * @param `password` password string
  * @param `ua` user-agent header string
@@ -83,3 +50,11 @@ export type loginInformation = {
 	password: string;
 	ua?: string;
 };
+
+export type appInfoParametersType = keyof appInfoType;
+
+export type webInformationSocialMedia = {
+	name: string;
+	url: string;
+	icon: string;
+}[];

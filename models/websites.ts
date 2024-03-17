@@ -12,6 +12,7 @@ import {
 	HasManyCountAssociationsMixin,
 	HasManyRemoveAssociationsMixin,
 	NonAttribute,
+	Optional,
 } from "sequelize";
 import { languages } from "..";
 import { UUID } from "node:crypto";
@@ -39,7 +40,7 @@ export interface Website
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
 	languages?: number[] | languages[]; // other languages without main language
-	WebsiteLanguageMutations?: Omit<
+	WebsiteLanguageMutations?: Optional<
 		InferCreationAttributes<WebsiteLanguageMutation>,
 		"id" | "WebsiteId"
 	>[]; // other languages without main language

@@ -10,11 +10,11 @@ import {
 	userAuthorizationNames,
 } from "../../digitalniweb-custom/variables/authorization.js";
 
-import { modules } from "../";
+import { modules } from "../functionality/modules.js";
 
 export type authorizationListType = {
 	roles?: RoleType[];
-	privileges?: ActionType[];	
+	privileges?: ActionType[];
 };
 
 export type mainAuthorizationNames = (typeof mainAuthorizationNames)[number];

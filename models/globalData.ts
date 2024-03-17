@@ -10,6 +10,9 @@ import {
 	HasOneSetAssociationMixin,
 	HasOneGetAssociationMixin,
 	HasOneCreateAssociationMixin,
+	Optional,
+	HasManySetAssociationsMixin,
+	HasManyGetAssociationsMixin,
 } from "sequelize";
 import {
 	mainAuthorizationNames,
@@ -18,7 +21,10 @@ import {
 } from "../authorization/index";
 
 import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
-import { modules, widgetNames, moduleModels, microservices } from "..";
+import { microservices } from "..";
+import { moduleModels, modules } from "../functionality/modules";
+import { adminMenus } from "../functionality/adminMenus";
+import { widgetNames } from "../functionality/widgets";
 import { statuses } from "../customHelpers/statuses";
 import { languages } from "../../digitalniweb-custom/variables/languages";
 export interface Language
@@ -48,6 +54,11 @@ export interface Module
 	name: modules;
 	model?: moduleModels;
 	creditsCost?: number; // per month
+	ModulesPagesLanguages?: Optional<
+		InferCreationAttributes<ModulesPagesLanguage>,
+		"id" | "ModuleId" | "LanguageId"
+	>[];
+	createAdminMenu: BelongsToCreateAssociationMixin<AdminMenu>;
 }
 export interface RoleType
 	extends Model<
@@ -185,8 +196,8 @@ export interface AdminMenu
 	/**
 	 * how we refer to the menu
 	 */
-	name: string;
-	component: string;
+	name: adminMenus;
+	component?: string;
 	order: number;
 	icon?: string;
 	parentId: ForeignKey<AdminMenu["id"]>;
@@ -199,6 +210,14 @@ export interface AdminMenu
 	ModuleId?: ForeignKey<Module["id"]>;
 	RoleId?: ForeignKey<Role["id"]>;
 	// ActionId: ForeignKey<Action["id"]>; // I think this isn't necessary
+
+	createAdminMenuLanguage: BelongsToCreateAssociationMixin<AdminMenuLanguage>;
+
+	setParent: BelongsToSetAssociationMixin<AdminMenu, "id">;
+	getParent: BelongsToGetAssociationMixin<AdminMenu>;
+
+	setChildren: HasManySetAssociationsMixin<AdminMenu, "id">;
+	getChildren: HasManyGetAssociationsMixin<AdminMenu>;
 }
 
 export interface AdminMenuLanguage
