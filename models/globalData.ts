@@ -13,6 +13,7 @@ import {
 	Optional,
 	HasManySetAssociationsMixin,
 	HasManyGetAssociationsMixin,
+	HasManyCreateAssociationMixin,
 } from "sequelize";
 import {
 	mainAuthorizationNames,
@@ -218,6 +219,7 @@ export interface AdminMenu
 
 	setChildren: HasManySetAssociationsMixin<AdminMenu, "id">;
 	getChildren: HasManyGetAssociationsMixin<AdminMenu>;
+	createChild: HasManyCreateAssociationMixin<AdminMenu>;
 }
 
 export interface AdminMenuLanguage
@@ -228,7 +230,7 @@ export interface AdminMenuLanguage
 	id: CreationOptional<number>;
 	AdminMenuId: ForeignKey<AdminMenu["id"]>;
 	LanguageId: ForeignKey<Language["id"]>;
-	url: string;
+	url?: string;
 	/**
 	 * how is menu shown in set language in /admin menu
 	 */

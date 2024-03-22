@@ -1,3 +1,13 @@
 import { modules } from "./modules";
 
-export type adminMenus = modules | "contentSeparator";
+type adminMenuOpeners = "contentOpener" | "superadminModulesOpener";
+
+type adminMenuSeparators = "superadminSeparator";
+
+type adminMenuSuperadmin = "superadminAppModules";
+
+export type adminMenus =
+	| modules
+	| adminMenuOpeners
+	| adminMenuSeparators
+	| adminMenuSuperadmin;
