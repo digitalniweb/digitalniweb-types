@@ -70,7 +70,7 @@ export interface WebsiteModule
 	WebsiteId: CreationOptional<number>;
 	moduleId: CreationOptional<number>;
 	active: boolean;
-	billingDay: number;
+	billingDay?: number;
 	createdAt?: CreationOptional<Date>;
 	deletedAt?: Date;
 }
