@@ -1,10 +1,19 @@
 import { modules } from "./modules";
 
-type adminMenuOpeners = "contentOpener" | "superadminModulesOpener";
+type adminMenuOpeners =
+	| "contentOpener"
+	| "superadminModulesOpener"
+	| "superadminLanguagesOpener"
+	| "superadminWidgetsOpener"
+	| "superadminAdminmenusOpener";
 
 type adminMenuSeparators = "superadminSeparator";
 
-type adminMenuSuperadmin = "superadminAppModules";
+type adminMenuSuperadmin =
+	| "superadminAppModules"
+	| "superadminAppLanguages"
+	| "superadminAppWidgets"
+	| "superadminAppAdminmenus";
 
 export type adminMenus =
 	| modules
