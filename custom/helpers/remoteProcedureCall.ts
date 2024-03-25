@@ -20,6 +20,7 @@ export type msCallOptions = {
 	headers?: HeadersInit;
 	scope?: "single" | "all";
 	timeout?: number;
+	cache?: boolean;
 };
 
 export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
