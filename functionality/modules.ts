@@ -4,7 +4,7 @@ type modulesDefault = {
 	webInformation: "WebInformation";
 };
 
-// modules with dedicated pages (with 'ModulesPagesLanguage')
+// modules with dedicated pages (with 'ModulePageLanguage')
 type modulesDedicatedTables = {
 	photoGallery: "PhotoGallery";
 	news: "News";

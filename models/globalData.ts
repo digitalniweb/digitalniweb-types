@@ -55,9 +55,9 @@ export interface Module
 	name: modules;
 	model?: moduleModels;
 	creditsCost?: number; // per month
-	ModulesPagesLanguages?: Optional<
-		InferCreationAttributes<ModulesPagesLanguage>,
-		"id" | "ModuleId" | "LanguageId"
+	ModulePages?: Optional<
+		InferCreationAttributes<ModulePage>,
+		"id" | "ModuleId"
 	>[];
 	createAdminMenu: BelongsToCreateAssociationMixin<AdminMenu>;
 }
@@ -238,21 +238,40 @@ export interface AdminMenuLanguage
 }
 
 /**
- * #ModulesPagesLanguage
+ * If modules have their own dedicated root url ('/register' and '/profile' for module 'users' for example) their default values for all languages are specified in here.
+ */
+export interface ModulePage
+	extends Model<
+		InferAttributes<ModulePage>,
+		InferCreationAttributes<ModulePage>
+	> {
+	id: CreationOptional<number>;
+	ModuleId: ForeignKey<Module["id"]>;
+	component: string;
+	name: string;
+	url: string;
+	ModulePageLanguages?: Optional<
+		InferCreationAttributes<ModulePageLanguage>,
+		"id" | "ModulePageId" | "LanguageId"
+	>[];
+}
+
+/**
+ * #ModulePageLanguage
  *
- * If modules have their own dedicated root url ('/news' in '/news/we-started-new-website') their default values are specified in here for every language.
+ * More values for specific languages of modules are in here.
  *
  * These values might be shown on the root page or other pages as well (depends on the individual module).
  *
  * (To implement maybe - user will be able to change these default values in 'content ms' for every website)
  */
-export interface ModulesPagesLanguage
+export interface ModulePageLanguage
 	extends Model<
-		InferAttributes<ModulesPagesLanguage>,
-		InferCreationAttributes<ModulesPagesLanguage>
+		InferAttributes<ModulePageLanguage>,
+		InferCreationAttributes<ModulePageLanguage>
 	> {
 	id: CreationOptional<number>;
-	ModuleId: ForeignKey<Module["id"]>;
+	ModulePageId: ForeignKey<ModulePage["id"]>;
 	LanguageId: ForeignKey<Language["id"]>;
 	url: string;
 	title?: string;
