@@ -247,7 +247,7 @@ export interface ModulePage
 	> {
 	id: CreationOptional<number>;
 	ModuleId: ForeignKey<Module["id"]>;
-	component: string;
+	component: modules;
 	name: string;
 	url: string;
 	ModulePageLanguages?: Optional<
