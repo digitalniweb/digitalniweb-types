@@ -1,3 +1,8 @@
+/**
+ * 'module': 'module model'
+ *
+ * 'module' - name of the module in camelCase
+ */
 type modulesDefault = {
 	articles: "Article";
 	css: "";
@@ -18,11 +23,6 @@ type modulesFunctionality = {
 	email: "Email";
 };
 
-/**
- * 'module': 'module model'
- *
- * 'module' - name of the module in camelCase
- */
 type modulesMap = modulesDefault &
 	modulesDedicatedTables &
 	modulesFunctionality;

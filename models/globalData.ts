@@ -54,6 +54,7 @@ export interface Module
 	id: CreationOptional<number>;
 	name: modules;
 	model?: moduleModels;
+	component?: string;
 	creditsCost?: number; // per month
 	ModulePages?: Optional<
 		InferCreationAttributes<ModulePage>,
