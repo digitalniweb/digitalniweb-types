@@ -184,6 +184,7 @@ export interface Widget
 	id: CreationOptional<number>;
 	name: string;
 	widgetName: widgetNames;
+	component?: string;
 }
 
 /**
