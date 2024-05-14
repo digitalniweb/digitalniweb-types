@@ -48,9 +48,9 @@ export interface WidgetContent
 	moduleRecordId: number;
 	name: string;
 	content: string;
-	options: object;
-	active: boolean;
-	order: number;
+	options?: object;
+	active?: boolean;
+	order?: number;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
