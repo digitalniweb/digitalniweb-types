@@ -1,4 +1,4 @@
-export type resourceIds = {
+export type resourceIdsType = {
 	websiteId: number;
 	websitesMsId: number;
 	contentMsId: number;
