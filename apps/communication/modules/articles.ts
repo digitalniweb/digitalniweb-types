@@ -1,7 +1,5 @@
-import { resourceIdsType } from "..";
-import { ParsedQs } from "qs";
+import { useApiCallQuery } from "..";
 
-export type getArticleQuery = ParsedQs & {
-	resourceIds: resourceIdsType | string; // string because after inside body (req.body) it might not be parsed to object
+export type getArticleQuery = useApiCallQuery & {
 	url: string;
 };
