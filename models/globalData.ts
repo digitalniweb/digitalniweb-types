@@ -268,6 +268,7 @@ export interface ModulePage
  * These values might be shown on the root page or other pages as well (depends on the individual module).
  *
  * (To implement maybe - user will be able to change these default values in 'content ms' for every website)
+ * @property {string} name - e.g. for text of links
  */
 export interface ModulePageLanguage
 	extends Model<
@@ -278,6 +279,7 @@ export interface ModulePageLanguage
 	ModulePageId: ForeignKey<ModulePage["id"]>;
 	LanguageId: ForeignKey<Language["id"]>;
 	url: string;
+	name: string;
 	title?: string;
 	description?: string;
 	headline?: string;
