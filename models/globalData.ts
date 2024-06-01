@@ -14,6 +14,7 @@ import {
 	HasManySetAssociationsMixin,
 	HasManyGetAssociationsMixin,
 	HasManyCreateAssociationMixin,
+	HasManyAddAssociationsMixin,
 } from "sequelize";
 import {
 	mainAuthorizationNames,
@@ -61,6 +62,7 @@ export interface Module
 		"id" | "ModuleId"
 	>[];
 	createAdminMenu: BelongsToCreateAssociationMixin<AdminMenu>;
+	addModulePages: HasManyAddAssociationsMixin<ModulePage, number>;
 }
 export interface RoleType
 	extends Model<
