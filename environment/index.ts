@@ -31,6 +31,9 @@ declare global {
 			DB_NAME?: string;
 			DB_DRIVER?: string;
 
+			REDIS_HOST: string;
+			REDIS_PORT: number;
+
 			NODE_ENV: "development" | "production";
 		}
 	}
