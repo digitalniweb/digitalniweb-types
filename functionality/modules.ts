@@ -6,6 +6,7 @@
 type modulesDefault = {
 	articles: "Article";
 	css: "";
+	superadmin: "";
 	webInformation: "WebInformation";
 };
 

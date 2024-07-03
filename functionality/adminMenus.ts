@@ -13,7 +13,7 @@ type adminMenuSuperadmin =
 	| "superadminAppModules"
 	| "superadminAppLanguages"
 	| "superadminAppWidgets"
-	| "superadminAppAdminmenus";
+	| "superadminAdminmenus";
 
 export type adminMenus =
 	| modules

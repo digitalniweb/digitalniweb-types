@@ -207,12 +207,8 @@ export interface AdminMenu
 	icon?: string;
 	parentId: ForeignKey<AdminMenu["id"]>;
 	openable: boolean;
-	/**
-	 * Defines if current 'AdminMenu' is default to all 'Apps' i.e. in all applications this 'AdminMenu' will be shown.
-	 */
-	isDefault: boolean;
 	separator?: boolean;
-	ModuleId?: ForeignKey<Module["id"]>;
+	ModuleId: ForeignKey<Module["id"]>;
 	RoleId?: ForeignKey<Role["id"]>;
 	// ActionId: ForeignKey<Action["id"]>; // I think this isn't necessary
 
