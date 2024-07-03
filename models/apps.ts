@@ -4,19 +4,8 @@ import {
 	CreationOptional,
 	InferAttributes,
 	InferCreationAttributes,
-	ForeignKey,
 } from "sequelize";
-/**
- * current app's AdminMenus
- */
-export interface AppAdminMenu
-	extends Model<
-		InferAttributes<AppAdminMenu>,
-		InferCreationAttributes<AppAdminMenu>
-	> {
-	id: CreationOptional<number>;
-	adminMenuId: number;
-}
+
 /**
  * current app's possible Languages
  */
