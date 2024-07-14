@@ -19,6 +19,7 @@ export type pickUserLoginResponse = Pick<
 	| "credit"
 	| "Tenant"
 	| "UserPrivileges"
+	| "UserModules"
 	| "websiteId"
 	| "websitesMsId"
 >;
@@ -41,6 +42,7 @@ export type userVerified = Pick<
 	| "websitesMsId"
 	| "usersMsId"
 	| "UserPrivileges"
+	| "UserModules"
 	| "credit"
 >;
 
