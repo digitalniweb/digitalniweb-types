@@ -5,6 +5,9 @@ import {
 	InferCreationAttributes,
 	BelongsToGetAssociationMixin,
 	ForeignKey,
+	HasManyAddAssociationsMixin,
+	HasManySetAssociationsMixin,
+	HasManyCreateAssociationMixin,
 } from "sequelize";
 import { UUID } from "node:crypto";
 export interface Tenant
@@ -50,12 +53,17 @@ export interface User
 	deletedAt?: Date;
 	Tenant?: Tenant;
 	UserPrivileges?: UserPrivilege[];
+	UserModules?: UserModule[];
+	addUserModules: HasManyAddAssociationsMixin<UserModule, number>;
+	setUserModules: HasManySetAssociationsMixin<UserModule, number>;
+	createUserModule: HasManyCreateAssociationMixin<UserModule>;
 	/* Privileges: NonAttribute<Privilege[]>;
 
 		addPrivileges: HasManyAddAssociationsMixin<Privilege, number>;
 		getRole: HasOneGetAssociationMixin<Role>; */
 }
 
+// ? I guess this should be removed
 export interface UserPrivilege
 	extends Model<
 		InferAttributes<UserPrivilege>,
@@ -64,6 +72,16 @@ export interface UserPrivilege
 	id: CreationOptional<number>;
 	UserId: CreationOptional<number>;
 	actionId: CreationOptional<number>;
+}
+
+export interface UserModule
+	extends Model<
+		InferAttributes<UserModule>,
+		InferCreationAttributes<UserModule>
+	> {
+	id: CreationOptional<number>;
+	UserId: CreationOptional<number>;
+	moduleId: CreationOptional<number>;
 }
 export interface Blacklist
 	extends Model<
