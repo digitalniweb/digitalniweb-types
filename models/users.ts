@@ -8,6 +8,7 @@ import {
 	HasManyAddAssociationsMixin,
 	HasManySetAssociationsMixin,
 	HasManyCreateAssociationMixin,
+	NonAttribute,
 } from "sequelize";
 import { UUID } from "node:crypto";
 export interface Tenant
@@ -54,6 +55,7 @@ export interface User
 	Tenant?: Tenant;
 	UserPrivileges?: UserPrivilege[];
 	UserModules?: UserModule[];
+	UserModulesIds?: NonAttribute<number[]>;
 	addUserModules: HasManyAddAssociationsMixin<UserModule, number>;
 	setUserModules: HasManySetAssociationsMixin<UserModule, number>;
 	createUserModule: HasManyCreateAssociationMixin<UserModule>;
