@@ -55,7 +55,7 @@ export interface User
 	Tenant?: Tenant;
 	UserPrivileges?: UserPrivilege[];
 	UserModules?: UserModule[];
-	UserModulesIds?: NonAttribute<number[]>;
+	UserModulesIds?: number[];
 	addUserModules: HasManyAddAssociationsMixin<UserModule, number>;
 	setUserModules: HasManySetAssociationsMixin<UserModule, number>;
 	createUserModule: HasManyCreateAssociationMixin<UserModule>;
