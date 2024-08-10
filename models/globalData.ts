@@ -15,6 +15,7 @@ import {
 	HasManyGetAssociationsMixin,
 	HasManyCreateAssociationMixin,
 	HasManyAddAssociationsMixin,
+	NonAttribute,
 } from "sequelize";
 import {
 	mainAuthorizationNames,
@@ -210,6 +211,7 @@ export interface AdminMenu
 	separator?: boolean;
 	ModuleId: ForeignKey<Module["id"]>;
 	RoleId?: ForeignKey<Role["id"]>;
+	AdminMenuLanguages?: AdminMenuLanguage[];
 	// ActionId: ForeignKey<Action["id"]>; // I think this isn't necessary
 
 	createAdminMenuLanguage: BelongsToCreateAssociationMixin<AdminMenuLanguage>;
