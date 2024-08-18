@@ -15,7 +15,9 @@ import {
 	HasManyGetAssociationsMixin,
 	HasManyCreateAssociationMixin,
 	HasManyAddAssociationsMixin,
-	NonAttribute,
+	BelongsToManyCreateAssociationMixin,
+	BelongsToManyAddAssociationsMixin,
+	BelongsToManyAddAssociationMixin,
 } from "sequelize";
 import {
 	mainAuthorizationNames,
@@ -62,7 +64,7 @@ export interface Module
 		InferCreationAttributes<ModulePage>,
 		"id" | "ModuleId"
 	>[];
-	createAdminMenu: BelongsToCreateAssociationMixin<AdminMenu>;
+	createAdminMenu: BelongsToManyCreateAssociationMixin<AdminMenu>;
 	addModulePages: HasManyAddAssociationsMixin<ModulePage, number>;
 }
 export interface RoleType
@@ -209,12 +211,14 @@ export interface AdminMenu
 	parentId: ForeignKey<AdminMenu["id"]>;
 	openable: boolean;
 	separator?: boolean;
-	ModuleId: ForeignKey<Module["id"]>;
 	RoleId?: ForeignKey<Role["id"]>;
 	AdminMenuLanguages?: AdminMenuLanguage[];
 	// ActionId: ForeignKey<Action["id"]>; // I think this isn't necessary
 
 	createAdminMenuLanguage: BelongsToCreateAssociationMixin<AdminMenuLanguage>;
+
+	addModules: BelongsToManyAddAssociationsMixin<Module, number>;
+	addModule: BelongsToManyAddAssociationMixin<Module, number>;
 
 	setParent: BelongsToSetAssociationMixin<AdminMenu, "id">;
 	getParent: BelongsToGetAssociationMixin<AdminMenu>;
@@ -222,6 +226,16 @@ export interface AdminMenu
 	setChildren: HasManySetAssociationsMixin<AdminMenu, "id">;
 	getChildren: HasManyGetAssociationsMixin<AdminMenu>;
 	createChild: HasManyCreateAssociationMixin<AdminMenu>;
+}
+
+export interface AdminMenuModule
+	extends Model<
+		InferAttributes<AdminMenuModule>,
+		InferCreationAttributes<AdminMenuModule>
+	> {
+	id: CreationOptional<number>;
+	AdminMenuId: ForeignKey<AdminMenu["id"]>;
+	ModuleId: ForeignKey<Module["id"]>;
 }
 
 export interface AdminMenuLanguage
