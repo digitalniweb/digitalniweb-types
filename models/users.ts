@@ -8,9 +8,9 @@ import {
 	HasManyAddAssociationsMixin,
 	HasManySetAssociationsMixin,
 	HasManyCreateAssociationMixin,
-	NonAttribute,
 } from "sequelize";
 import { UUID } from "node:crypto";
+import { Role } from "./globalData";
 export interface Tenant
 	extends Model<InferAttributes<Tenant>, InferCreationAttributes<Tenant>> {
 	id: CreationOptional<number>;
@@ -56,6 +56,8 @@ export interface User
 	UserPrivileges?: UserPrivilege[];
 	UserModules?: UserModule[];
 	UserModulesIds?: number[];
+	role?: InferAttributes<Role>;
+
 	addUserModules: HasManyAddAssociationsMixin<UserModule, number>;
 	setUserModules: HasManySetAssociationsMixin<UserModule, number>;
 	createUserModule: HasManyCreateAssociationMixin<UserModule>;
