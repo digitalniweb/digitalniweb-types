@@ -16,6 +16,7 @@ export type pickUserLoginResponse = Pick<
 	| "nickname"
 	| "email"
 	| "roleId"
+	| "role"
 	| "credit"
 	| "Tenant"
 	| "UserPrivileges"
