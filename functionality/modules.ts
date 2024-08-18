@@ -5,7 +5,7 @@
  */
 type modulesDefault = {
 	articles: "Article";
-	css: "";
+	appearance: "Appearance";
 	superadmin: "";
 	webInformation: "WebInformation";
 };
