@@ -34,6 +34,9 @@ declare global {
 			REDIS_HOST: string;
 			REDIS_PORT: number;
 
+			FILEBROWSER_LOCAL_ROOT_PATH: string;
+			FILEBROWSER_PUBLIC_ROOT_PATH: string;
+
 			NODE_ENV: "development" | "production";
 		}
 	}

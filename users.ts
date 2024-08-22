@@ -23,6 +23,7 @@ export type pickUserLoginResponse = Pick<
 	| "UserModulesIds"
 	| "websiteId"
 	| "websitesMsId"
+	| "websiteUuid"
 >;
 
 // authenticated user response in apps
@@ -45,6 +46,7 @@ export type userVerified = Pick<
 	| "UserPrivileges"
 	| "UserModulesIds"
 	| "credit"
+	| "websiteUuid"
 >;
 
 // autenticated user data in jwt / access_token
