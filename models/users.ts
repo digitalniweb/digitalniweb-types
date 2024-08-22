@@ -55,8 +55,10 @@ export interface User
 	Tenant?: Tenant;
 	UserPrivileges?: UserPrivilege[];
 	UserModules?: UserModule[];
-	UserModulesIds?: number[];
 	role?: InferAttributes<Role>;
+
+	UserModulesIds?: number[]; // NonAttribute
+	websiteUuid?: UUID; // NonAttribute
 
 	addUserModules: HasManyAddAssociationsMixin<UserModule, number>;
 	setUserModules: HasManySetAssociationsMixin<UserModule, number>;
