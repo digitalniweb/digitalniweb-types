@@ -1,6 +1,5 @@
 export type fileSystemFile = {
 	path: string;
-	basename: string;
 	name: string;
 	size: number;
 	extension: string;
