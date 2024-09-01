@@ -3,6 +3,7 @@ export type fileSystemFile = {
 	name: string;
 	size: number;
 	extension: string;
+	mtime: Date;
 };
 export type fileSystemDirectory = {
 	path: string;
