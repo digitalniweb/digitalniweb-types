@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { microservices } from "../../../digitalniweb-types";
+import { microservices, appCacheType } from "../../../digitalniweb-types";
 import HTTPMethods from "../../../digitalniweb-types/httpMethods";
 import { InferAttributes, Model } from "sequelize";
 
@@ -20,8 +20,10 @@ export type msCallOptions = {
 	headers?: HeadersInit;
 	scope?: "single" | "all";
 	timeout?: number;
-	cache?: boolean;
+	cache?: appCacheType;
 };
+
+export type cacheKey = string | appCacheType | [];
 
 export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
 

@@ -58,3 +58,23 @@ export type webInformationSocialMedia = {
 	url: string;
 	icon: string;
 }[];
+
+/**
+ * @param type type of data
+ * 	* 'data' general data
+ *  * 'list' all rows of a globally used model from globalData like 'modules' or 'roles'
+ *  * 'msId' (shardId) if scope === 'all' which means we don't know 'msId' beforehand
+ * @param ms `microservices | apps` - use this even if it's the same microservice/app (in users ms use 'users' here). Because then we can delete the cache via redis event
+ * @param msId (shardId) `number`
+ * @param model `string` model name
+ * @param modelId `number` model id
+ * @param description `string` if we have other data than model or to use as additional identifier to make the key unique
+ */
+export type appCacheType = {
+	type: "data" | "list" | "msId";
+	ms: microservices | apps;
+	msId?: number;
+	model?: string;
+	modelId?: number;
+	description?: string;
+};
