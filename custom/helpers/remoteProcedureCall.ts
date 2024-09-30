@@ -23,15 +23,9 @@ export type msCallOptions = {
 	cache?: appCacheType;
 };
 
-export type cacheKey = string | appCacheType | [];
+export type cacheKey = string | appCacheType | (number | string)[];
 
 export type appCallOptions = Omit<msCallOptions, "name"> & { name: string };
-
-/**
- * data - cached response data information
- * shardId - cached microservice shard id of 'all' request for particular information (e.g. 'websites' shard id for 'digitalweb.cz' url)
- */
-export type apiAppCacheType = "data" | "shardId";
 
 type msIdHeaders = {
 	"x-ms-id"?: string;
