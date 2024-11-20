@@ -1,7 +1,6 @@
 import { AxiosResponse } from "axios";
 import { microservices, appCacheType } from "../../../digitalniweb-types";
 import HTTPMethods from "../../../digitalniweb-types/httpMethods";
-import { InferAttributes, Model } from "sequelize";
 
 /**
  * @property { [key: string]: any } `data` POST data

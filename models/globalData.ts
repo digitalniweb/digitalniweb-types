@@ -66,6 +66,8 @@ export interface Module
 	>[];
 	createAdminMenu: BelongsToManyCreateAssociationMixin<AdminMenu>;
 	addModulePages: HasManyAddAssociationsMixin<ModulePage, number>;
+
+	addWidgets: BelongsToManyAddAssociationsMixin<Widget, number>;
 }
 export interface RoleType
 	extends Model<
@@ -190,6 +192,8 @@ export interface Widget
 	name: string;
 	widgetName: widgetNames;
 	component?: string;
+
+	addModules: BelongsToManyAddAssociationsMixin<Module, number>;
 }
 
 /**
@@ -235,6 +239,16 @@ export interface AdminMenuModule
 	> {
 	id: CreationOptional<number>;
 	AdminMenuId: ForeignKey<AdminMenu["id"]>;
+	ModuleId: ForeignKey<Module["id"]>;
+}
+
+export interface ModuleWidget
+	extends Model<
+		InferAttributes<ModuleWidget>,
+		InferCreationAttributes<ModuleWidget>
+	> {
+	id: CreationOptional<number>;
+	WidgetId: ForeignKey<Widget["id"]>;
 	ModuleId: ForeignKey<Module["id"]>;
 }
 
