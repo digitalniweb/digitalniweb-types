@@ -64,6 +64,8 @@ export interface Module
 		InferCreationAttributes<ModulePage>,
 		"id" | "ModuleId"
 	>[];
+	Widgets?: InferAttributes<Widget>[];
+
 	createAdminMenu: BelongsToManyCreateAssociationMixin<AdminMenu>;
 	addModulePages: HasManyAddAssociationsMixin<ModulePage, number>;
 
