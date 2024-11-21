@@ -194,6 +194,7 @@ export interface Widget
 	name: string;
 	widgetName: widgetNames;
 	component?: string;
+	icon?: string;
 
 	addModules: BelongsToManyAddAssociationsMixin<Module, number>;
 }
