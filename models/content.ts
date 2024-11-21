@@ -55,7 +55,6 @@ export interface WidgetContent
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
-	Widget?: InferAttributes<Widget>;
 }
 export interface WebInformation
 	extends Model<
