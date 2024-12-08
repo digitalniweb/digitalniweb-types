@@ -78,3 +78,5 @@ export type appCacheType = {
 	modelId?: number;
 	description?: string;
 };
+
+export type newIdString = `new${number}`;

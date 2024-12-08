@@ -51,7 +51,7 @@ export interface WidgetContent
 	content: string;
 	options?: object;
 	active?: boolean;
-	order?: number;
+	order: CreationOptional<number>;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
