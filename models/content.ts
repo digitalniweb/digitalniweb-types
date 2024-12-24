@@ -49,7 +49,7 @@ export interface WidgetContent
 	moduleRecordId: number;
 	name: string;
 	content: string;
-	options?: object;
+	options?: string; // stringified object
 	active?: boolean;
 	order: CreationOptional<number>;
 	createdAt?: CreationOptional<Date>;
