@@ -10,6 +10,7 @@ import {
 } from "../digitalniweb-custom/variables/apps.js";
 import { languages } from "../digitalniweb-custom/variables/languages.js";
 import { Language } from "./models/globalData.js";
+import { WidgetContent } from "./models/content.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
@@ -58,6 +59,22 @@ export type webInformationSocialMedia = {
 	url: string;
 	icon: string;
 }[];
+
+export type WidgetContentNew = Pick<
+	InferAttributes<WidgetContent>,
+	"active" | "content" | "name" | "options"
+>;
+
+export type WidgetContentCreate = Pick<
+	InferAttributes<WidgetContent>,
+	| "active"
+	| "content"
+	| "name"
+	| "options"
+	| "moduleId"
+	| "order"
+	| "widgetId"
+>;
 
 /**
  * @param type type of data
