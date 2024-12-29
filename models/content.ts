@@ -21,7 +21,7 @@ export interface Article
 	active: boolean;
 	freeMenu: boolean;
 	order: number;
-	parentId: ForeignKey<Article["id"]>;
+	parentId: ForeignKey<Article["id"]> | null;
 	websiteId: number;
 	websitesMsId: number;
 	title: string;
