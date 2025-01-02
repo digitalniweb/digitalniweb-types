@@ -13,9 +13,12 @@ export type orderDataObject = {
 	parentId: number | null | undefined;
 };
 
+export type urlDataObject = { id: number; url: string };
+
 export type saveArticleQuery = {
 	menudata: InferAttributes<Article>;
 	newMenuOrders: orderDataObject[];
+	newMenuUrls: urlDataObject[];
 	widgetContent: {
 		deletedWCs: number[];
 		newWCs: WidgetContentCreate[];
