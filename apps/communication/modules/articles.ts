@@ -1,7 +1,7 @@
 import { InferAttributes } from "sequelize";
 import { useApiCallQuery } from "..";
-import { Article, WidgetContent } from "~/digitalniweb-types/models/content";
-import { WidgetContentCreate } from "~/digitalniweb-types";
+import { Article, WidgetContent } from "../../../models/content";
+import { WidgetContentCreate } from "../../../.";
 
 export type getArticleQuery = useApiCallQuery & {
 	url: string;
