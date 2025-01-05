@@ -1,4 +1,4 @@
-import { InferAttributes } from "sequelize";
+import { CreationAttributes, InferAttributes } from "sequelize";
 import { useApiCallQuery } from "..";
 import { Article, WidgetContent } from "../../../models/content";
 import { WidgetContentCreate } from "../../../.";
@@ -15,15 +15,29 @@ export type orderDataObject = {
 
 export type urlDataObject = { id: number; url: string };
 
-export type saveArticleQuery = {
-	menudata: InferAttributes<Article>;
-	newMenuOrders: orderDataObject[];
-	newMenuUrls: urlDataObject[];
-	widgetContent: {
-		deletedWCs: number[];
-		newWCs: WidgetContentCreate[];
-		editedWCs: Partial<InferAttributes<WidgetContent>>[];
+export type saveNewArticleQuery = {
+	menu: {
+		data: CreationAttributes<Article>;
+		newMenuOrders?: orderDataObject[];
+	};
+	widgetContent?: {
+		newWCs?: WidgetContentCreate[];
 	};
 };
 
-export type getsaveArticleQuery = useApiCallQuery & saveArticleQuery;
+export type getSaveNewArticleQuery = useApiCallQuery & saveNewArticleQuery;
+
+export type editArticleQuery = {
+	id: number;
+	menu?: {
+		data?: Partial<InferAttributes<Article>>;
+		newMenuOrders?: orderDataObject[];
+		newMenuUrls?: urlDataObject[];
+	};
+	widgetContent?: {
+		newWCs?: WidgetContentCreate[];
+		deletedWCs?: number[];
+		editedWCs?: Partial<InferAttributes<WidgetContent>>[];
+	};
+};
+export type getEditArticleQuery = useApiCallQuery & editArticleQuery;
