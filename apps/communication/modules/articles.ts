@@ -28,8 +28,8 @@ export type saveNewArticleQuery = {
 export type getSaveNewArticleQuery = useApiCallQuery & saveNewArticleQuery;
 
 export type editArticleQuery = {
-	id: number;
-	menu?: {
+	menu: {
+		id: number;
 		data?: Partial<InferAttributes<Article>>;
 		newMenuOrders?: orderDataObject[];
 		newMenuUrls?: urlDataObject[];
