@@ -41,3 +41,6 @@ export type editArticleQuery = {
 	};
 };
 export type getEditArticleQuery = useApiCallQuery & editArticleQuery;
+
+export type deleteArticleQuery = { id: number };
+export type getDeleteArticleQuery = useApiCallQuery & deleteArticleQuery;
