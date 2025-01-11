@@ -42,5 +42,8 @@ export type editArticleQuery = {
 };
 export type getEditArticleQuery = useApiCallQuery & editArticleQuery;
 
-export type deleteArticleQuery = { id: number };
+export type deleteArticleQuery = {
+	id: number;
+	newMenuOrders?: orderDataObject[];
+};
 export type getDeleteArticleQuery = useApiCallQuery & deleteArticleQuery;
