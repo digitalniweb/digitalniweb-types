@@ -9,5 +9,5 @@ export type resourceIdsType = {
 };
 
 export type useApiCallQuery = ParsedQs & {
-	resourceIds: resourceIdsType | string; // string because h3 ('getQuery(event)') stringifies objects to strings
+	resourceIds: resourceIdsType | string; // string because h3 ('getQuery(event)') stringifies objects to strings if used in GET method via url
 };

@@ -10,28 +10,28 @@ export type getArticleQuery = useApiCallQuery & {
 export type orderDataObject = {
 	id: number;
 	order: number;
-	parentId: number | null | undefined;
+	parentId: number | null;
 };
 
 export type urlDataObject = { id: number; url: string };
 
-export type saveNewArticleQuery = {
+export type saveNewArticleRequestBody = {
 	menu: {
 		data: CreationAttributes<Article>;
-		newMenuOrders?: orderDataObject[];
 	};
 	widgetContent?: {
 		newWCs?: WidgetContentCreate[];
 	};
 };
 
-export type getSaveNewArticleQuery = useApiCallQuery & saveNewArticleQuery;
+export type getSaveNewArticleRequestBody = useApiCallQuery &
+	saveNewArticleRequestBody;
 
-export type editArticleQuery = {
+export type editArticleRequestBody = {
 	menu: {
 		id: number;
 		data?: Partial<InferAttributes<Article>>;
-		newMenuOrders?: orderDataObject[];
+		previousLocation: orderDataObject; // might be the same location. This info is needed for change to new location
 		newMenuUrls?: urlDataObject[];
 	};
 	widgetContent?: {
@@ -40,10 +40,11 @@ export type editArticleQuery = {
 		editedWCs?: Partial<InferAttributes<WidgetContent>>[];
 	};
 };
-export type getEditArticleQuery = useApiCallQuery & editArticleQuery;
+export type getEditArticleRequestBody = useApiCallQuery &
+	editArticleRequestBody;
 
-export type deleteArticleQuery = {
+export type deleteArticleRequestBody = {
 	id: number;
-	newMenuOrders?: orderDataObject[];
 };
-export type getDeleteArticleQuery = useApiCallQuery & deleteArticleQuery;
+export type getDeleteArticleRequestBody = useApiCallQuery &
+	deleteArticleRequestBody;
