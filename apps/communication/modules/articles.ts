@@ -31,7 +31,6 @@ export type editArticleRequestBody = {
 	menu: {
 		id: number;
 		data?: Partial<InferAttributes<Article>>;
-		previousLocation: orderDataObject; // might be the same location. This info is needed for change to new location
 		newMenuUrls?: urlDataObject[];
 	};
 	widgetContent?: {
