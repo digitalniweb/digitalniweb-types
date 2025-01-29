@@ -29,6 +29,7 @@ export interface Website
 	uuid: CreationOptional<UUID>;
 	contentMsId: CreationOptional<number>;
 	MainUrlId?: number;
+	usersMsId?: number;
 	userId?: number;
 	appId?: number;
 	mainLanguageId?: number;
