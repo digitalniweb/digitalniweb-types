@@ -17,6 +17,7 @@ declare global {
 			APP_ACCESS_TOKEN_SECRET: string;
 			APP_REFRESH_TOKEN_SECRET: string;
 			DEFAULT_LANGUAGE: languages;
+			APP_LANGUAGES: string;
 
 			APP_ID: number;
 			APP_CONTENT_MS_ID: number;
