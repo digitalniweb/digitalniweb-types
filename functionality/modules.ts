@@ -10,7 +10,6 @@ type modulesDefault = {
 	webInformation: "WebInformation";
 };
 
-// modules with dedicated pages (with 'ModulePageLanguage')
 type modulesDedicatedTables = {
 	photoGallery: "PhotoGallery";
 	news: "News";
@@ -22,6 +21,8 @@ type modulesFunctionality = {
 	tenants: "Tenant";
 	invoices: "Invoice";
 	email: "Email";
+	saasHost: "";
+	saasTenants: "";
 };
 
 type modulesMap = modulesDefault &
