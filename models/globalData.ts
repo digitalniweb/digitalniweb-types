@@ -289,6 +289,8 @@ export interface ModulePage
 		InferCreationAttributes<ModulePageLanguage>,
 		"id" | "ModulePageId" | "LanguageId"
 	>[];
+
+	createModulePageLanguage: HasManyCreateAssociationMixin<ModulePageLanguage>;
 }
 
 /**
