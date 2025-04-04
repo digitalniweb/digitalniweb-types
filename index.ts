@@ -19,7 +19,18 @@ export type appLanguages = { [key in languages]: InferAttributes<Language> };
 
 export type languages = (typeof languages)[number];
 
-export interface loginAttempt extends CreationAttributes<LoginLog> {}
+export type loginAttempt = CreationAttributes<LoginLog>;
+export type wrongLoginError = {
+	message: string;
+	messageTranslate:
+		| "LoginErrorWrongLogin"
+		| "LoginErrorNextAttemptIPBan"
+		| "LoginErrorTooManyAttempts"; // string for translate() method for frontend. Should start with 'LoginError'
+	loginAttemptsCount: number;
+	maxLoginAttempts: number;
+	timeSpanMinutes?: number;
+	blockedTill?: Date | string;
+};
 
 export type microserviceInfoType = {
 	PORT: number;
