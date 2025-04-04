@@ -5,7 +5,6 @@ import {
 	InferCreationAttributes,
 	ForeignKey,
 } from "sequelize";
-import { Widget } from "./globalData";
 /**
  * Articles are 'main menu'
  * @property parentId id of the parent Article a.k.a. menu
