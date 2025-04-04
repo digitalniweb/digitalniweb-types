@@ -6,6 +6,7 @@ export type resourceIdsType = {
 	moduleId: number;
 	languageId: number;
 	appId: number;
+	usersMsId: number;
 };
 
 export type useApiCallQuery = ParsedQs & {
