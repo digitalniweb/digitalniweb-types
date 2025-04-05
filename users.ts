@@ -1,6 +1,6 @@
-import { InferAttributes } from "sequelize";
-import { User } from "./models/users";
-import { Role } from "./models/globalData";
+import type { InferAttributes } from "sequelize";
+import type { User } from "./models/users";
+import type { Role } from "./models/globalData";
 
 export type tokenType = "access" | "refresh";
 export type tokensJWT = {

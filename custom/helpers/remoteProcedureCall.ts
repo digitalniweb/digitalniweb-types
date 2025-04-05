@@ -1,6 +1,6 @@
-import { AxiosResponse } from "axios";
-import { microservices, appCacheType } from "../../../digitalniweb-types";
-import HTTPMethods from "../../../digitalniweb-types/httpMethods";
+import type { AxiosResponse } from "axios";
+import type { microservices, appCacheType } from "../../../digitalniweb-types";
+import type { HTTPMethods } from "../../../digitalniweb-types/httpMethods";
 
 /**
  * @property { [key: string]: any } `data` POST data

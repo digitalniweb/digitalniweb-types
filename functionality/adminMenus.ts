@@ -1,4 +1,4 @@
-import { modules } from "./modules";
+import type { modules } from "./modules";
 
 type adminMenuOpeners =
 	| "contentOpener"

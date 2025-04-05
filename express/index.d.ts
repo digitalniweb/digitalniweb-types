@@ -1,5 +1,5 @@
-import { loginAttempt } from "..";
-import {
+import type { loginAttempt } from "..";
+import type {
 	adminAuthorizationNames,
 	userAuthorizationNames,
 } from "../authorization";

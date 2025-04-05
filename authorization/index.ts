@@ -1,4 +1,4 @@
-import {
+import type {
 	Role as RoleType,
 	Action as ActionType,
 } from "../models/globalData.js";
@@ -10,7 +10,7 @@ import {
 	userAuthorizationNames,
 } from "../../digitalniweb-custom/variables/authorization.js";
 
-import { modules } from "../functionality/modules.js";
+import type { modules } from "../functionality/modules.js";
 
 export type authorizationListType = {
 	roles?: RoleType[];

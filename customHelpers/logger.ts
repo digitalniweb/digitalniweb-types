@@ -1,7 +1,7 @@
-import { logTypes } from "../../digitalniweb-custom/variables/logs";
-import HTTPMethods from "../httpMethods";
-import { statuses } from "./statuses";
-import { Request } from "express";
+import type { logTypes } from "../../digitalniweb-custom/variables/logs";
+import type { HTTPMethods } from "../httpMethods";
+import type { statuses } from "./statuses";
+import type { Request } from "express";
 
 /**
  * commonly occured properties of Error object.

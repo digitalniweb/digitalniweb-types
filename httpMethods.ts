@@ -8,5 +8,3 @@ export type HTTPMethods =
 	| "POST"
 	| "PUT"
 	| "TRACE";
-
-export default HTTPMethods;

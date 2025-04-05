@@ -1,6 +1,6 @@
-import { CreationAttributes, InferAttributes } from "sequelize";
+import type { CreationAttributes, InferAttributes } from "sequelize";
 
-import { LoginLog } from "./models/users.js";
+import type { LoginLog } from "./models/users.js";
 import { microservicesArray } from "../digitalniweb-custom/variables/microservices.js";
 export type microservices = (typeof microservicesArray)[number];
 
@@ -9,8 +9,8 @@ import {
 	appsTypesArray,
 } from "../digitalniweb-custom/variables/apps.js";
 import { languages } from "../digitalniweb-custom/variables/languages.js";
-import { Language } from "./models/globalData.js";
-import { WidgetContent } from "./models/content.js";
+import type { Language } from "./models/globalData.js";
+import type { WidgetContent } from "./models/content.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];

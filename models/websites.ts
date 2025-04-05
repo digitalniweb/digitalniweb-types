@@ -1,5 +1,5 @@
-import {
-	Model,
+import { Model } from "sequelize";
+import type {
 	CreationOptional,
 	InferAttributes,
 	InferCreationAttributes,
@@ -14,8 +14,8 @@ import {
 	NonAttribute,
 	Optional,
 } from "sequelize";
-import { languages } from "..";
-import { UUID } from "node:crypto";
+import type { languages } from "..";
+import type { UUID } from "node:crypto";
 export interface Url
 	extends Model<InferAttributes<Url>, InferCreationAttributes<Url>> {
 	id: CreationOptional<number>;

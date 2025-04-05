@@ -1,5 +1,5 @@
-import {
-	Model,
+import { Model } from "sequelize";
+import type {
 	CreationOptional,
 	InferAttributes,
 	InferCreationAttributes,
@@ -9,8 +9,8 @@ import {
 	HasManySetAssociationsMixin,
 	HasManyCreateAssociationMixin,
 } from "sequelize";
-import { UUID } from "node:crypto";
-import { Role } from "./globalData";
+import type { UUID } from "node:crypto";
+import type { Role } from "./globalData";
 export interface Tenant
 	extends Model<InferAttributes<Tenant>, InferCreationAttributes<Tenant>> {
 	id: CreationOptional<number>;

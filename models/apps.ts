@@ -1,6 +1,7 @@
 "use strict";
-import {
-	Model,
+import { Model } from "sequelize";
+
+import type {
 	CreationOptional,
 	InferAttributes,
 	InferCreationAttributes,

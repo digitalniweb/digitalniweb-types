@@ -1,5 +1,5 @@
-import { languages } from "../../../../digitalniweb-types";
-import {
+import type { languages } from "../../../../digitalniweb-types";
+import type {
 	Role,
 	Language,
 	Module,

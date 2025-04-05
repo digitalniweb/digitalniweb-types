@@ -1,8 +1,9 @@
-import {
-	Model,
+import { Model } from "sequelize";
+
+import type {
 	CreationOptional,
-	InferCreationAttributes,
 	InferAttributes,
+	InferCreationAttributes,
 } from "sequelize";
 
 export interface User

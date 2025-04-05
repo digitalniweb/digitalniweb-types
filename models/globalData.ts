@@ -1,5 +1,5 @@
-import {
-	Model,
+import { Model } from "sequelize";
+import type {
 	CreationOptional,
 	InferAttributes,
 	InferCreationAttributes,
@@ -19,18 +19,18 @@ import {
 	BelongsToManyAddAssociationsMixin,
 	BelongsToManyAddAssociationMixin,
 } from "sequelize";
-import {
+import type {
 	mainAuthorizationNames,
 	userAuthorizationNames,
 	adminAuthorizationNames,
 } from "../authorization/index";
 
 import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
-import { microservices } from "..";
-import { moduleModels, modules } from "../functionality/modules";
-import { adminMenus } from "../functionality/adminMenus";
-import { widgetNames } from "../functionality/widgets";
-import { statuses } from "../customHelpers/statuses";
+import type { microservices } from "..";
+import type { moduleModels, modules } from "../functionality/modules";
+import type { adminMenus } from "../functionality/adminMenus";
+import type { widgetNames } from "../functionality/widgets";
+import type { statuses } from "../customHelpers/statuses";
 import { languages } from "../../digitalniweb-custom/variables/languages";
 export interface Language
 	extends Model<

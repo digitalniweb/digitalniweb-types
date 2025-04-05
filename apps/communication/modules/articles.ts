@@ -1,7 +1,7 @@
-import { CreationAttributes, InferAttributes } from "sequelize";
-import { useApiCallQuery } from "..";
-import { Article, WidgetContent } from "../../../models/content";
-import { WidgetContentCreate } from "../../../.";
+import type { CreationAttributes, InferAttributes } from "sequelize";
+import type { useApiCallQuery } from "..";
+import type { Article, WidgetContent } from "../../../models/content";
+import type { WidgetContentCreate } from "../../../.";
 
 export type getArticleQuery = useApiCallQuery & {
 	url: string;

@@ -1,4 +1,4 @@
-import { languages, microservices, apps, appsTypes } from "../index.js";
+import type { languages, microservices, apps, appsTypes } from "../index.js";
 declare global {
 	namespace NodeJS {
 		interface ProcessEnv {

@@ -1,14 +1,14 @@
-import { microservices } from "../../..";
+import type { microservices } from "../../..";
 
 // ServiceRegistry model exists only in 'Microservices', not in 'Apps'
 // @ts-ignore
 import ServiceRegistry from "../../../../server/models/globalData/serviceRegistry";
-import {
+import type {
 	microserviceOptions,
 	microserviceRegistryInfo,
 	serviceRegistry,
 } from "../../../customFunctions/globalData";
-import { Microservice } from "../../../models/globalData";
+import type { Microservice } from "../../../models/globalData";
 
 export type registerService = (
 	options: microserviceOptions
