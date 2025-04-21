@@ -21,12 +21,15 @@ export type appLanguages = { [key in languages]: InferAttributes<Language> };
 export type languages = (typeof languages)[number];
 
 export type loginAttempt = CreationAttributes<LoginLog>;
+
+// string for translate() method for frontend. Should start with 'LoginError'
+export type wrongLoginErrorMessageTranslate =
+	| "LoginErrorWrongLogin"
+	| "LoginErrorNextAttemptIPBan"
+	| "LoginErrorTooManyAttempts";
 export type wrongLoginError = {
 	message: string;
-	messageTranslate:
-		| "LoginErrorWrongLogin"
-		| "LoginErrorNextAttemptIPBan"
-		| "LoginErrorTooManyAttempts"; // string for translate() method for frontend. Should start with 'LoginError'
+	messageTranslate: wrongLoginErrorMessageTranslate;
 	loginAttemptsCount: number;
 	maxLoginAttempts: number;
 	blockedTill?: Date | string;
