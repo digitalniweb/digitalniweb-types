@@ -9,18 +9,11 @@ type requestLanguageExpansion = {
 	languageId: number | null;
 };
 
-type requestAntispamExpansion = {
-	loginAttempt: loginAttempt;
-	loginAttemptsCount: number;
-	maxLoginAttempts: number;
-};
-
 declare global {
 	namespace Express {
 		export interface Response {
 			locals: {
 				lang?: requestLanguageExpansion;
-				antispam?: requestAntispamExpansion;
 				userVerified?: {
 					id: number;
 					usersMsId: number;

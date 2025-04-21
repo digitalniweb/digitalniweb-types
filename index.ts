@@ -11,6 +11,7 @@ import {
 import { languages } from "../digitalniweb-custom/variables/languages.js";
 import type { Language } from "./models/globalData.js";
 import type { WidgetContent } from "./models/content.js";
+import type { userAuthorizationNames } from "./authorization/index.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];
@@ -28,7 +29,6 @@ export type wrongLoginError = {
 		| "LoginErrorTooManyAttempts"; // string for translate() method for frontend. Should start with 'LoginError'
 	loginAttemptsCount: number;
 	maxLoginAttempts: number;
-	timeSpanMinutes?: number;
 	blockedTill?: Date | string;
 };
 
@@ -61,6 +61,7 @@ export type loginInformation = {
 	email: string;
 	password: string;
 	ua?: string;
+	type: userAuthorizationNames;
 };
 
 export type appInfoParametersType = keyof appInfoType;

@@ -111,11 +111,26 @@ export interface LoginLog
 		InferCreationAttributes<LoginLog>
 	> {
 	id: CreationOptional<number>;
-	userLogin: string;
-	UserId?: number | null;
+	UserId: number;
+	websiteId: number;
+	websitesMsId: number;
 	ip: string;
-	userAgent: Object;
 	successful: boolean;
+	unsuccessfulCount: number;
 
+	createdAt?: CreationOptional<Date>;
+}
+
+export interface WrongLoginLog
+	extends Model<
+		InferAttributes<WrongLoginLog>,
+		InferCreationAttributes<WrongLoginLog>
+	> {
+	id: CreationOptional<number>;
+	userLogin?: string;
+	websiteId: number;
+	websitesMsId: number;
+	ip?: string;
+	unsuccessfulCount: number;
 	createdAt?: CreationOptional<Date>;
 }
