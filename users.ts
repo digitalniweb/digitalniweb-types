@@ -1,11 +1,17 @@
-import type { InferAttributes } from "sequelize";
+import type { InferAttributes, InferCreationAttributes } from "sequelize";
 import type { User } from "./models/users";
 import type { Role } from "./models/globalData";
+import type { userAuthorizationNames } from "./authorization";
 
 export type tokenType = "access" | "refresh";
 export type tokensJWT = {
 	accessToken?: string;
 	refreshToken?: string;
+};
+
+export type registerUser = {
+	user: InferCreationAttributes<User>;
+	userRole: userAuthorizationNames;
 };
 
 // !!! whenever we add another parameter in any of these types we need to add this parameter name to corresponding array in 'digitalniwe-custom/variables/user.ts' as well
