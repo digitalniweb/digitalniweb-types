@@ -41,7 +41,7 @@ export interface User
 	 * If credit is `null` then don't show information about credit or show some other information, not 0
 	 */
 	credit?: number;
-	nickname: string;
+	nickname?: string;
 	email: string;
 	password: string;
 	refreshTokenSalt: CreationOptional<string>;
