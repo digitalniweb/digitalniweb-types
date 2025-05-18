@@ -1,4 +1,4 @@
-import type { AxiosResponse } from "axios";
+import type { AxiosError, AxiosResponse } from "axios";
 import type { microservices, appCacheType } from "../../../digitalniweb-types";
 import type { HTTPMethods } from "../../../digitalniweb-types/httpMethods";
 
