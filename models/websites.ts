@@ -84,16 +84,3 @@ export interface WebsiteLanguageMutation
 	WebsiteId: CreationOptional<number>;
 	languageId: CreationOptional<number>;
 }
-
-/**
- * which app can have which admin menu
- */
-export interface AdminMenuApp
-	extends Model<
-		InferAttributes<AdminMenuApp>,
-		InferCreationAttributes<AdminMenuApp>
-	> {
-	id: CreationOptional<number>;
-	adminMenuId: number;
-	appId: number;
-}
