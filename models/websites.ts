@@ -14,7 +14,6 @@ import type {
 	NonAttribute,
 	Optional,
 } from "sequelize";
-import type { languages } from "..";
 import type { UUID } from "node:crypto";
 export interface Url
 	extends Model<InferAttributes<Url>, InferCreationAttributes<Url>> {
@@ -40,11 +39,10 @@ export interface Website
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
-	languages?: number[] | languages[]; // other languages without main language
 	WebsiteLanguageMutations?: Optional<
 		InferCreationAttributes<WebsiteLanguageMutation>,
 		"id" | "WebsiteId"
-	>[]; // other languages without main language
+	>[]; // all language mutations
 	websitesMsId?: NonAttribute<number>; // added in hook
 
 	setAliases: HasManySetAssociationsMixin<Url, number>;
