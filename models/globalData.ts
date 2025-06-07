@@ -29,7 +29,6 @@ import { actionNames } from "../../digitalniweb-custom/variables/actions.js";
 import type { microservices } from "..";
 import type { moduleModels, modules } from "../functionality/modules";
 import type { adminMenus } from "../functionality/adminMenus";
-import type { widgetNames } from "../functionality/widgets";
 import type { statuses } from "../customHelpers/statuses";
 import { languages } from "../../digitalniweb-custom/variables/languages";
 export interface Language
@@ -194,7 +193,6 @@ export interface Widget
 	extends Model<InferAttributes<Widget>, InferCreationAttributes<Widget>> {
 	id: CreationOptional<number>;
 	name: string;
-	widgetName: widgetNames;
 	component?: string;
 	icon?: string;
 

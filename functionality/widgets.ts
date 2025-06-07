@@ -1,18 +1,10 @@
-/**
- * 'widget': 'widget model'
- *
- * 'widget' - name of the widget in camelCase
- */
-type widgetsMap = {
-	text: "Text";
-	carousel: "Carousel";
-	news: "News";
-	form: "Form";
-	columnsTwo: "ColumnsTwo";
-	columnsThree: "ColumnsThree";
-	columnsFour: "ColumnsFour";
-	columnsImageLeft: "ColumnsImageLeft";
-	columnsImageRight: "ColumnsImageRight";
-};
-export type widgets = keyof widgetsMap;
-export type widgetNames = widgetsMap[keyof widgetsMap];
+export type widgets = "text";
+// |
+// "carousel" |
+// "news" |
+// "form" |
+// "layout two columns" |
+// "layout three columns" |
+// "layout four columns" |
+// "layout two columns image left" |
+// "layout two columns image right";
