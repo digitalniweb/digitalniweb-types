@@ -20,8 +20,6 @@ declare global {
 			APP_LANGUAGES: string;
 
 			APP_ID: number;
-			APP_CONTENT_MS_ID: number;
-			APP_WEBSITES_MS_ID: number;
 
 			HOST: string;
 			PORT: number;
