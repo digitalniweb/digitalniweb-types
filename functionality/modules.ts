@@ -1,5 +1,5 @@
 /**
- * 'module': 'module model'
+ * 'module': 'module model name'
  *
  * 'module' - name of the module in camelCase
  */

@@ -1,7 +1,6 @@
 import type { CreationAttributes, InferAttributes } from "sequelize";
 import type { useApiCallQuery } from "..";
-import type { Article, WidgetContent } from "../../../models/content";
-import type { WidgetContentCreate } from "../../../.";
+import type { Article, ArticleWidget } from "../../../models/content";
 
 export type getArticleQuery = useApiCallQuery & {
 	url: string;
@@ -16,11 +15,9 @@ export type orderDataObject = {
 export type urlDataObject = { id: number; url: string };
 
 export type saveNewArticleRequestBody = {
-	menu: {
-		data: CreationAttributes<Article>;
-	};
-	widgetContent?: {
-		newWCs?: WidgetContentCreate[];
+	menu: CreationAttributes<Article>;
+	widgets?: {
+		new?: ArticleWidget[];
 	};
 };
 
@@ -33,10 +30,10 @@ export type editArticleRequestBody = {
 		data?: Partial<InferAttributes<Article>>;
 		newMenuUrls?: urlDataObject[];
 	};
-	widgetContent?: {
-		newWCs?: WidgetContentCreate[];
+	widgets?: {
+		newWCs?: ArticleWidget[];
 		deletedWCs?: number[];
-		editedWCs?: Partial<InferAttributes<WidgetContent>>[];
+		editedWCs?: Partial<InferAttributes<ArticleWidget>>[];
 	};
 };
 export type getEditArticleRequestBody = useApiCallQuery &

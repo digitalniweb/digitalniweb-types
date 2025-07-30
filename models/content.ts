@@ -29,31 +29,79 @@ export interface Article
 	updatedAt?: CreationOptional<Date>;
 	createdAt?: CreationOptional<Date>;
 	deletedAt?: Date;
+	ArticlesWidgets?: ArticleWidget[];
 }
 
+// /**
+//  * @property {number} widgetId ID of the widget
+//  * @property {number} modlueId ID of the module i.e. ID inside 'Module' model representing 'Article'
+//  * @property {number} moduleRecordId ID of record of the module i.e. ID inside 'Article' module
+//  */
+// export interface WidgetContent
+// 	extends Model<
+// 		InferAttributes<WidgetContent>,
+// 		InferCreationAttributes<WidgetContent>
+// 	> {
+// 	id: CreationOptional<number>;
+// 	widgetId: number;
+// 	moduleId: number;
+// 	moduleRecordId: number;
+// 	name: string;
+// 	content: string;
+// 	options?: string; // stringified object
+// 	active?: boolean;
+// 	order: CreationOptional<number>;
+// 	createdAt?: CreationOptional<Date>;
+// 	updatedAt?: CreationOptional<Date>;
+// 	deletedAt?: Date;
+// }
 /**
- * @property {number} widgetId ID of the widget
- * @property {number} modlueId ID of the module i.e. ID inside 'Module' model representing 'Article'
- * @property {number} moduleRecordId ID of record of the module i.e. ID inside 'Article' module
+ * @property {number} articleId 'Article' ID
+ * @property {number} widgetId ID of the widget - i.e. 'WidgetText'
+ * @property {number} widgetRowId ID of row of the widget - i.e. ID inside 'WidgetText' widget
  */
-export interface WidgetContent
+export interface ArticleWidget
 	extends Model<
-		InferAttributes<WidgetContent>,
-		InferCreationAttributes<WidgetContent>
+		InferAttributes<ArticleWidget>,
+		InferCreationAttributes<ArticleWidget>
 	> {
 	id: CreationOptional<number>;
-	widgetId: number;
-	moduleId: number;
-	moduleRecordId: number;
-	name: string;
-	content: string;
-	options?: string; // stringified object
-	active?: boolean;
+	ArticleId: number;
+	widgetId: number; // not used for associations but to distinguish what widget it is. For associations we use "WidgetModel.moduleId" (i.e. WidgetText.moduleId) which every one of these we rename to "widget" ('as: "widget") in associations
+	widgetRowId: number;
 	order: CreationOptional<number>;
+	active?: boolean;
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
+
+	WidgetText?: WidgetText | null;
+	WidgetBanner?: WidgetBanner | null;
 }
+
+export interface WidgetText
+	extends Model<
+		InferAttributes<WidgetText>,
+		InferCreationAttributes<WidgetText>
+	> {
+	id: CreationOptional<number>;
+	name: string;
+	moduleId: number;
+	content: string;
+	options?: string;
+}
+export interface WidgetBanner
+	extends Model<
+		InferAttributes<WidgetBanner>,
+		InferCreationAttributes<WidgetBanner>
+	> {
+	id: CreationOptional<number>;
+	name: string;
+	moduleId: number;
+	content: string;
+	options?: string;
+}
+
 export interface WebInformation
 	extends Model<
 		InferAttributes<WebInformation>,
