@@ -29,7 +29,7 @@ export interface Article
 	updatedAt?: CreationOptional<Date>;
 	createdAt?: CreationOptional<Date>;
 	deletedAt?: Date;
-	ArticlesWidgets?: ArticleWidget[];
+	ArticleWidgets?: ArticleWidget[];
 }
 
 // /**
