@@ -31,7 +31,7 @@ import type { moduleModels, modules } from "../functionality/modules";
 import type { adminMenus } from "../functionality/adminMenus";
 import type { statuses } from "../customHelpers/statuses";
 import { languages } from "../../digitalniweb-custom/variables/languages";
-import type { widgets } from "../functionality/widgets";
+import type { widgetModels, widgets } from "../functionality/widgets";
 export interface Language
 	extends Model<
 		InferAttributes<Language>,
@@ -194,6 +194,7 @@ export interface Widget
 	extends Model<InferAttributes<Widget>, InferCreationAttributes<Widget>> {
 	id: CreationOptional<number>;
 	name: widgets;
+	model?: widgetModels;
 	component?: string;
 	icon?: string;
 

@@ -10,9 +10,7 @@ import {
 } from "../digitalniweb-custom/variables/apps.js";
 import { languages } from "../digitalniweb-custom/variables/languages.js";
 import type { Language } from "./models/globalData.js";
-import type { ArticleWidget } from "./models/content.js";
 import type { userAuthorizationNames } from "./authorization/index.js";
-import type { widgetModels } from "./functionality/widgets.js";
 
 export type apps = (typeof appsArray)[number];
 export type appsTypes = (typeof appsTypesArray)[number];

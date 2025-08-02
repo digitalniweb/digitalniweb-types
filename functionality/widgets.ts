@@ -1,9 +1,8 @@
-import type { WidgetText, WidgetBanner } from "../models/content";
-
 /**
- * 'widget name': 'widget model'
+ * 'widget name': 'widget model name'
  */
-type widgetsDefault = { text: WidgetText; banner: WidgetBanner };
+type widgetsDefault = {};
+export type widgetsArticle = { text: "WidgetText"; banner: "WidgetBanner" };
 // |
 // "carousel" |
 // "news" |
@@ -14,7 +13,7 @@ type widgetsDefault = { text: WidgetText; banner: WidgetBanner };
 // "layout two columns image left" |
 // "layout two columns image right";
 
-type widgetsMap = widgetsDefault;
+type widgetsMap = widgetsDefault & widgetsArticle;
 
 export type widgets = keyof widgetsMap;
 export type widgetModels = widgetsMap[keyof widgetsMap];
