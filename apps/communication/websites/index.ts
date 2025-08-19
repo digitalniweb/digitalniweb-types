@@ -7,3 +7,7 @@ export type createWebsiteRequest = {
 	websiteUrl: string;
 	languages: languages[];
 };
+export type addWebsiteModulesRequest = {
+	moduleIds: number[];
+	websiteId: number;
+};
