@@ -44,6 +44,7 @@ export interface Website
 		"id" | "WebsiteId"
 	>[]; // all language mutations
 	websitesMsId?: NonAttribute<number>; // added in hook
+	WebsiteModules?: InferAttributes<WebsiteModule>[];
 
 	setAliases: HasManySetAssociationsMixin<Url, number>;
 	addAliases: HasManyAddAssociationsMixin<Url, number>;
@@ -58,6 +59,8 @@ export interface Website
 		WebsiteLanguageMutation,
 		number
 	>;
+	// createWebsiteModule: HasManyCreateAssociationMixin<WebsiteModule>;
+	// addWebsiteModules: HasManyAddAssociationsMixin<WebsiteModule, number>;
 }
 
 export interface WebsiteModule
@@ -69,7 +72,7 @@ export interface WebsiteModule
 	WebsiteId: CreationOptional<number>;
 	moduleId: CreationOptional<number>;
 	active: boolean;
-	billingDay?: number;
+	billingDay?: number | null;
 	createdAt?: CreationOptional<Date>;
 	deletedAt?: Date;
 }
