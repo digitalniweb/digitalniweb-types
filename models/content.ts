@@ -32,39 +32,7 @@ export interface Article
 	ArticleWidgets?: ArticleWidget[];
 }
 
-// /**
-//  * @property {number} widgetId ID of the widget
-//  * @property {number} modlueId ID of the module i.e. ID inside 'Module' model representing 'Article'
-//  * @property {number} moduleRecordId ID of record of the module i.e. ID inside 'Article' module
-//  */
-// export interface WidgetContent
-// 	extends Model<
-// 		InferAttributes<WidgetContent>,
-// 		InferCreationAttributes<WidgetContent>
-// 	> {
-// 	id: CreationOptional<number>;
-// 	widgetId: number;
-// 	moduleId: number;
-// 	moduleRecordId: number;
-// 	name: string;
-// 	content: string;
-// 	options?: string; // stringified object
-// 	active?: boolean;
-// 	order: CreationOptional<number>;
-// 	createdAt?: CreationOptional<Date>;
-// 	updatedAt?: CreationOptional<Date>;
-// 	deletedAt?: Date;
-// }
-/**
- * @property {number} articleId 'Article' ID
- * @property {number} widgetId ID of the widget - i.e. 'WidgetText'
- * @property {number} widgetRowId ID of row of the widget - i.e. ID inside 'WidgetText' widget
- */
-export interface ArticleWidget
-	extends Model<
-		InferAttributes<ArticleWidget>,
-		InferCreationAttributes<ArticleWidget>
-	> {
+export interface ModuleWidgets {
 	id: CreationOptional<number>;
 	ArticleId: number;
 	widgetId: number; // not used for associations but to distinguish what widget it is. For associations we use "WidgetModel.moduleId" (i.e. WidgetText.moduleId) which every one of these we rename to "widget" ('as: "widget") in associations
@@ -74,7 +42,19 @@ export interface ArticleWidget
 	createdAt?: CreationOptional<Date>;
 	updatedAt?: CreationOptional<Date>;
 	deletedAt?: Date;
+}
 
+/**
+ * @property {number} articleId 'Article' ID
+ * @property {number} widgetId ID of the widget - i.e. 'WidgetText'
+ * @property {number} widgetRowId ID of row of the widget - i.e. ID inside 'WidgetText' widget
+ */
+export interface ArticleWidget
+	extends Model<
+			InferAttributes<ArticleWidget>,
+			InferCreationAttributes<ArticleWidget>
+		>,
+		ModuleWidgets {
 	WidgetText?: WidgetText | null;
 	WidgetBanner?: WidgetBanner | null;
 }

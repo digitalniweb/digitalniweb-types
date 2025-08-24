@@ -1,3 +1,5 @@
+import type { ArticleWidget } from "../models/content";
+
 /**
  * 'widget name': 'widget model name'
  */
@@ -12,6 +14,8 @@ export type widgetsArticle = { text: "WidgetText"; banner: "WidgetBanner" };
 // "layout four columns" |
 // "layout two columns image left" |
 // "layout two columns image right";
+
+export type modulesWidgetsContent = ArticleWidget; // | OtherModuleWidget | AnotherModuleWidget | ...
 
 type widgetsMap = widgetsDefault & widgetsArticle;
 
