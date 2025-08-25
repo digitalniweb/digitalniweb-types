@@ -1,7 +1,7 @@
 import type { CreationAttributes } from "sequelize";
 import type { Website } from "../../../models/websites";
 import type { languages } from "../../..";
-import type { modules } from "~/digitalniweb-types/functionality/modules";
+import type { modules } from "../../../../digitalniweb-types/functionality/modules";
 
 export type createWebsiteRequest = {
 	websiteData: CreationAttributes<Website>;
