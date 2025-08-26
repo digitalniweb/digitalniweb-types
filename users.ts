@@ -1,7 +1,10 @@
 import type { InferAttributes, InferCreationAttributes } from "sequelize";
 import type { User } from "./models/users";
 import type { Role } from "./models/globalData";
-import type { userAuthorizationNames } from "./authorization";
+import type {
+	adminAuthorizationNames,
+	userAuthorizationNames,
+} from "./authorization";
 
 export type tokenType = "access" | "refresh";
 export type tokensJWT = {
@@ -12,6 +15,16 @@ export type tokensJWT = {
 export type registerUser = {
 	user: InferCreationAttributes<User>;
 	userRole: userAuthorizationNames;
+};
+
+export type registerAdmin = {
+	user: Required<
+		Pick<
+			InferAttributes<User>,
+			"email" | "password" | "websiteId" | "websitesMsId"
+		>
+	>;
+	userRole: adminAuthorizationNames;
 };
 
 // !!! whenever we add another parameter in any of these types we need to add this parameter name to corresponding array in 'digitalniwe-custom/variables/user.ts' as well
