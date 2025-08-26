@@ -17,13 +17,20 @@ export type registerUser = {
 	userRole: userAuthorizationNames;
 };
 
+export type getWebsiteUserByEmailRequest = {
+	websiteId: number;
+	websitesMsId: number;
+	email: string;
+};
+
 export type registerAdmin = {
 	user: Required<
 		Pick<
 			InferAttributes<User>,
 			"email" | "password" | "websiteId" | "websitesMsId"
 		>
-	>;
+	> &
+		Partial<Pick<InferAttributes<User>, "nickname">>;
 	userRole: adminAuthorizationNames;
 };
 
