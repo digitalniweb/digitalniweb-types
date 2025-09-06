@@ -194,7 +194,7 @@ export interface Widget
 	extends Model<InferAttributes<Widget>, InferCreationAttributes<Widget>> {
 	id: CreationOptional<number>;
 	name: widgets;
-	model?: widgetModels;
+	model?: widgetModels[number];
 	component?: string;
 	icon?: string;
 

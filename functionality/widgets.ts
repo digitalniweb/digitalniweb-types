@@ -1,5 +1,5 @@
 import type { ArticleWidget } from "../models/content";
-
+import { widgetModels } from "../../digitalniweb-custom/variables/widgets";
 /**
  * 'widget name': 'widget model name'
  */
@@ -20,4 +20,4 @@ export type modulesWidgetsContent = ArticleWidget; // | OtherModuleWidget | Anot
 type widgetsMap = widgetsDefault & widgetsArticle;
 
 export type widgets = keyof widgetsMap;
-export type widgetModels = widgetsMap[keyof widgetsMap];
+export type widgetModels = typeof widgetModels;
