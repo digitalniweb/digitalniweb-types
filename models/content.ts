@@ -4,6 +4,7 @@ import type {
 	InferAttributes,
 	InferCreationAttributes,
 	ForeignKey,
+	HasManyGetAssociationsMixin,
 } from "sequelize";
 /**
  * Articles are 'main menu'
@@ -30,6 +31,8 @@ export interface Article
 	createdAt?: CreationOptional<Date>;
 	deletedAt?: Date;
 	ArticleWidgets?: ArticleWidget[];
+
+	getArticleWidgets: HasManyGetAssociationsMixin<ArticleWidget>;
 }
 
 export interface ModuleWidgets {
