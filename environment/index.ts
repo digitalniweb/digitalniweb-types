@@ -6,7 +6,7 @@ declare global {
 			MICROSERVICE_UNIQUE_NAME: string;
 			MICROSERVICE_API_KEY: string;
 
-			MICROSERVICE_ID: number;
+			MICROSERVICE_ID: string; // number
 
 			GLOBALDATA_REGISTRY_API_KEY: string;
 
@@ -19,10 +19,10 @@ declare global {
 			DEFAULT_LANGUAGE: languages;
 			APP_LANGUAGES: string;
 
-			APP_ID: number;
+			APP_ID: string; // number
 
 			HOST: string;
-			PORT: number;
+			PORT: string; // number
 
 			DB_HOST?: string;
 			DB_USER?: string;
@@ -31,7 +31,7 @@ declare global {
 			DB_DRIVER?: string;
 
 			REDIS_HOST: string;
-			REDIS_PORT: number;
+			REDIS_PORT: string; // number
 
 			FILEBROWSER_LOCAL_ROOT_PATH: string;
 			FILEBROWSER_PUBLIC_ROOT_PATH: string;
