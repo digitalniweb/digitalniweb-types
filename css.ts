@@ -5,7 +5,7 @@ import type {
 	lengthUnits,
 	lengthUnitsGrid,
 	textAlign,
-} from "~/digitalniweb-custom/variables/css";
+} from "../digitalniweb-custom/variables/css";
 
 export type background = {
 	color?: string;
