@@ -6,6 +6,7 @@ import type {
 	InferCreationAttributes,
 } from "sequelize";
 import { Model } from "sequelize";
+import type { widgetTextOptions } from "../functionality/widgets";
 /**
  * Articles are 'main menu'
  * @property parentId id of the parent Article a.k.a. menu
@@ -71,7 +72,7 @@ export interface WidgetText
 	name: string;
 	moduleId: number;
 	content: string;
-	options?: string;
+	options?: widgetTextOptions;
 }
 export interface WidgetBanner
 	extends Model<
