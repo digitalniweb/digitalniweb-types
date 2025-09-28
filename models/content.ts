@@ -1,11 +1,11 @@
-import { Model } from "sequelize";
 import type {
 	CreationOptional,
-	InferAttributes,
-	InferCreationAttributes,
 	ForeignKey,
 	HasManyGetAssociationsMixin,
+	InferAttributes,
+	InferCreationAttributes,
 } from "sequelize";
+import { Model } from "sequelize";
 /**
  * Articles are 'main menu'
  * @property parentId id of the parent Article a.k.a. menu
@@ -39,7 +39,7 @@ export interface ModuleWidgets {
 	id: CreationOptional<number>;
 	ArticleId: number;
 	widgetId: number; // not used for associations but to distinguish what widget it is. For associations we use "WidgetModel.moduleId" (i.e. WidgetText.moduleId) which every one of these we rename to "widget" ('as: "widget") in associations
-	widgetRowId: number;
+	widgetRowId?: number; // it is not null eventually, but is nullable because when creating this can be null for a little while
 	order: CreationOptional<number>;
 	active?: boolean;
 	createdAt?: CreationOptional<Date>;
