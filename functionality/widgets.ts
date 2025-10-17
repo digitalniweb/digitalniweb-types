@@ -1,6 +1,6 @@
-import type { ArticleWidget } from "../models/content";
 import { widgetModels } from "../../digitalniweb-custom/variables/widgets";
-import type { background, lengthUnits, textAlign } from "../css";
+import type { containerOptions } from "../css";
+import type { ArticleWidget } from "../models/content";
 /**
  * 'widget name': 'widget model name'
  */
@@ -25,9 +25,5 @@ export type widgetModels = typeof widgetModels;
 
 export type widgetTextOptions = {
 	showHeading: boolean;
-	overlay: boolean;
-	textAlign: textAlign;
-	padding: number;
-	paddingUnits: lengthUnits;
-	background?: background;
+	container: containerOptions;
 };
