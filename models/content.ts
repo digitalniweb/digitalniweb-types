@@ -7,6 +7,7 @@ import type {
 } from "sequelize";
 import { Model } from "sequelize";
 import type { widgetTextOptions } from "../functionality/widgets";
+import type { serializableJSON } from "../json";
 /**
  * Articles are 'main menu'
  * @property parentId id of the parent Article a.k.a. menu
@@ -72,7 +73,7 @@ export interface WidgetText
 	name: string;
 	moduleId: number;
 	content: string;
-	options?: widgetTextOptions;
+	options?: serializableJSON<widgetTextOptions>;
 }
 export interface WidgetBanner
 	extends Model<
