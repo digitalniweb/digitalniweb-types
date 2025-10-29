@@ -1,4 +1,5 @@
 import type { ParsedQs } from "qs";
+import type { serializableJSON } from "../../json";
 export type resourceIdsType = {
 	websiteId: number;
 	websitesMsId: number;
@@ -10,5 +11,5 @@ export type resourceIdsType = {
 };
 
 export type useApiCallQuery = ParsedQs & {
-	resourceIds: resourceIdsType | string; // string because h3 ('getQuery(event)') stringifies objects to strings if used in GET method via url
+	resourceIds: serializableJSON<resourceIdsType>; // string because h3 ('getQuery(event)') stringifies objects to strings if used in GET method via url
 };
