@@ -1,5 +1,5 @@
 import { widgetModels } from "../../digitalniweb-custom/variables/widgets";
-import type { containerOptions } from "../css";
+import type { containerOptions, headingOptions } from "../css";
 import type { ArticleWidget } from "../models/content";
 /**
  * 'widget name': 'widget model name'
@@ -24,6 +24,6 @@ export type widgets = keyof widgetsMap;
 export type widgetModels = typeof widgetModels;
 
 export type widgetTextOptions = {
-	showHeading: boolean;
+	heading: headingOptions;
 	container: containerOptions;
 };

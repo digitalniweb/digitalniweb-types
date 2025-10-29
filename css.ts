@@ -2,12 +2,13 @@ import {
 	backgroundAttachment,
 	backgroundPosition,
 	backgroundRepeat,
+	headingTypes,
 	lengthUnits,
 	lengthUnitsGrid,
+	overlayEffects,
 	sizeOptions,
 	textAlign,
 	widthOptions,
-	type overlayEffects,
 } from "../digitalniweb-custom/variables/css";
 export type sizeOptions = (typeof sizeOptions)[number];
 export type widthOptions = (typeof widthOptions)[number];
@@ -35,13 +36,33 @@ export type lengthUnitsGrid = (typeof lengthUnitsGrid)[number];
 
 export type containerOptions = {
 	class?: string;
-	customClass?: string;
 	height100?: boolean;
 	width?: widthOptions;
-	elevation?: sizeOptions;
-	border?: sizeOptions;
-	padding?: sizeOptions;
-	margin?: sizeOptions;
-	textAlign: textAlign;
+	elevation?: Extract<sizeOptions, "none" | "small" | "large">;
+	border?: Extract<sizeOptions, "none" | "small" | "large">;
+	borderRadius?: Extract<sizeOptions, "none" | "small" | "large">;
+	padding?: Extract<sizeOptions, "none" | "small" | "large">;
+	margin?: Extract<sizeOptions, "none" | "small" | "large">;
+	textAlign?: Extract<textAlign, "right" | "left" | "center">;
 	background?: background;
+};
+
+export type headingTypes = (typeof headingTypes)[number];
+
+export type textClasses = "none" | "caption" | "subtitle" | "overline";
+export type textWeight =
+	| "thin"
+	| "light"
+	| "regular"
+	| "medium"
+	| "bold"
+	| "black";
+
+export type headingOptions = {
+	show?: boolean;
+	type?: headingTypes;
+	class?: textClasses;
+	weight?: textWeight;
+	italic?: boolean;
+	uppercase?: boolean;
 };
