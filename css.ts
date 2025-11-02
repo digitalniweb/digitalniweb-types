@@ -9,6 +9,8 @@ import {
 	sizeOptions,
 	textAlign,
 	widthOptions,
+	type textClasses,
+	type textWeight,
 } from "../digitalniweb-custom/variables/css";
 export type sizeOptions = (typeof sizeOptions)[number];
 export type widthOptions = (typeof widthOptions)[number];
@@ -49,14 +51,8 @@ export type containerOptions = {
 
 export type headingTypes = (typeof headingTypes)[number];
 
-export type textClasses = "none" | "caption" | "subtitle" | "overline";
-export type textWeight =
-	| "thin"
-	| "light"
-	| "regular"
-	| "medium"
-	| "bold"
-	| "black";
+export type textClasses = (typeof textClasses)[number];
+export type textWeight = (typeof textWeight)[number];
 
 export type headingOptions = {
 	show?: boolean;
